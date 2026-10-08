@@ -1,0 +1,18 @@
+/* A quiet, draggable page rail. Native scrolling remains the scroll engine. */
+:root{scrollbar-width:thin;scrollbar-color:var(--muted) var(--paper)}
+*::-webkit-scrollbar{width:7px;height:7px}
+*::-webkit-scrollbar-track{background:transparent}
+*::-webkit-scrollbar-thumb{background:var(--muted);border:2px solid var(--paper);border-radius:20px}
+html.custom-scrollbar{scrollbar-width:none}
+html.custom-scrollbar::-webkit-scrollbar{width:0;height:0;display:none}
+.site-scrollbar{position:fixed;right:2px;top:105px;bottom:20px;width:18px;z-index:80;touch-action:none;user-select:none;cursor:pointer;outline:none;contain:layout style}
+.site-scrollbar:before{content:'';position:absolute;top:0;bottom:0;left:8px;width:2px;background:var(--line);opacity:.35;border-radius:3px}
+.site-scrollbar-thumb{position:absolute;left:7px;top:0;width:4px;min-height:28px;border-radius:5px;background:var(--muted);opacity:.65;pointer-events:none;will-change:transform;transition:background .2s,opacity .2s}
+.site-scrollbar:hover .site-scrollbar-thumb,.site-scrollbar:focus-visible .site-scrollbar-thumb,.site-scrollbar.is-dragging .site-scrollbar-thumb{background:var(--accent);opacity:1}
+.site-scrollbar:focus-visible{outline:1px solid var(--accent);outline-offset:1px;border-radius:8px}
+body:has(dialog[open]) .site-scrollbar{visibility:hidden;pointer-events:none}
+html.is-dragging-scrollbar,html.is-dragging-scrollbar *{cursor:grabbing!important;user-select:none!important}
+@media(max-width:760px){.site-scrollbar{top:88px;bottom:max(16px,env(safe-area-inset-bottom));right:0;width:16px}.site-scrollbar:before{left:8px;width:1px}.site-scrollbar-thumb{left:7px;width:3px}}
+@media(prefers-reduced-motion:reduce){.site-scrollbar-thumb{transition:none}}
+@media(forced-colors:active){html.custom-scrollbar{scrollbar-width:auto}html.custom-scrollbar::-webkit-scrollbar{display:initial;width:auto;height:auto}.site-scrollbar{display:none}}
+@media print{.site-scrollbar{display:none!important}}

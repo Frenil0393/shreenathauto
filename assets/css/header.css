@@ -1,0 +1,102 @@
+/* Shared header and centred controls. Mobile keeps the existing 76px rhythm. */
+@media(min-width:761px){
+  .site-header{view-transition-name:site-header}
+  .header-tools .appearance-trigger{min-width:128px}
+  .header-tools .language-trigger{min-width:103px}
+  ::view-transition-group(site-header){animation:none}
+  ::view-transition-old(site-header){animation:none;opacity:0}
+  ::view-transition-new(site-header){animation:none;opacity:1}
+}
+@media(min-width:761px) and (max-width:1200px){.header-tools .appearance-trigger{min-width:44px}}
+html:not(.js) .header-tools :is(.appearance-trigger,.language-trigger){display:none}
+html:not(.js) .header-ready>.menu-toggle{display:none!important}
+@media(max-width:760px){
+  html:not(.js) .site-header .header-inner.header-ready{display:flex;height:auto;flex-wrap:wrap;padding-block:15px}
+  html:not(.js) .header-ready>.main-nav{flex-basis:100%;flex-wrap:wrap}
+  html:not(.js) .header-ready>.main-nav>a{width:auto;min-height:44px;font-size:12px;padding:10px}
+}
+.header-inner.header-ready{display:grid;grid-template-columns:minmax(0,1fr) auto minmax(0,1fr);gap:clamp(16px,2vw,32px);height:91px}
+.header-ready>.brand{justify-self:start}
+.header-ready>.main-nav{justify-self:center;display:flex;align-items:center;justify-content:center;gap:6px;margin:0;padding:5px 0;border:0;border-radius:0;background:transparent}
+.header-ready>.main-nav>a{display:flex;justify-content:center;align-items:center;text-align:center;padding:11px 17px;min-height:42px;border-radius:0;line-height:1.5;white-space:nowrap;font-size:12px;transition:color .2s}
+.header-ready>.main-nav>a:after{display:none}
+.header-ready>.main-nav>a[aria-current]{background:transparent;color:var(--accent)}
+.header-ready>.main-nav>a:hover:not([aria-current]){background:transparent;color:var(--accent)}
+@media(min-width:761px){
+  /* A shape as well as colour identifies the current page, without a capsule. */
+  .header-inner>.main-nav>a{position:relative}
+  .header-inner>.main-nav>a[aria-current='page']{color:var(--accent);font-weight:600}
+  .header-inner>.main-nav>a[aria-current='page']:after{display:block;content:'';position:absolute;left:50%;right:auto;bottom:2px;width:22px;height:3px;border-radius:2px;background:currentColor;transform:translateX(-50%)}
+}
+.header-tools{display:flex;align-items:center;justify-content:flex-end;justify-self:end;gap:8px}
+.header-tools .header-contact{display:flex;align-items:center;justify-content:center;text-align:center;gap:12px;padding:12px 17px;min-height:44px;border:1px solid var(--line);border-radius:100px;font-size:12px;margin:0;white-space:nowrap}
+.header-ready :is(.appearance-trigger,.language-trigger){display:flex;align-items:center;justify-content:center;gap:9px;width:auto;height:auto;min-height:44px;flex:0 0 auto;margin:0;padding:10px 14px;border-radius:100px;background:transparent;font:500 12px/1.4 var(--font)}
+.header-ready :is(.appearance-trigger,.language-trigger):hover{background:var(--white);border-color:var(--accent)}
+.header-control-copy{display:flex;flex-direction:column;align-items:center;justify-content:center;gap:2px}
+.header-control-label{font-size:11px;line-height:1.6}
+.header-control-value{font-size:12px;line-height:1.6}
+.header-tools .appearance-trigger .header-control-value,.header-tools .language-trigger .header-control-label{display:none}
+.header-ready .menu-toggle{border-radius:100px;align-items:center;justify-content:center;gap:12px;min-height:44px;line-height:1.5;margin:0}
+:is(.button,.consent-button,.motion-toggle,.appearance-done,.copy-enquiry){justify-content:center;align-items:center;text-align:center;border-radius:100px}
+.button{gap:18px}
+.text-link{justify-content:center;align-items:center;text-align:center;gap:22px}
+.appearance-modes span{text-align:center;border-radius:12px}
+.language-options button{align-items:center;text-align:center;border-radius:18px}
+.language-dialog,.appearance-dialog,.cookie-dialog{border-radius:24px}
+.dialog-close{display:grid;place-items:center;flex-shrink:0;border-radius:50%;line-height:1}
+@media(min-width:761px) and (max-width:1200px){
+  .header-tools .header-contact{display:none}
+  .header-inner.header-ready{gap:14px}
+  .header-ready>.main-nav>a{padding-inline:12px}
+  .header-ready :is(.appearance-trigger,.language-trigger){padding-inline:11px}
+  .header-tools .appearance-trigger .header-control-copy{display:none}
+}
+@media(min-width:761px) and (max-width:920px){
+  .header-inner.header-ready{gap:10px}
+  .header-ready>.main-nav{gap:0}
+  .header-ready>.main-nav>a{padding-inline:9px;font-size:11px}
+  .header-tools{gap:6px}
+  .header-tools .language-trigger svg{display:none}
+  .header-ready :is(.appearance-trigger,.language-trigger){padding-inline:10px}
+  .header-ready .brand{gap:8px}
+  .header-ready .brand img{width:33px;height:37px}
+  .header-ready .brand-name,html:lang(gu) .header-ready .brand-name{font-size:18px}
+}
+@media(max-width:760px){
+  /* Brand dimensions must be final on the very first paint, before deferred JS. */
+  .site-header .header-inner{height:76px;min-height:76px}
+  /* The HTML button stays hidden for the no-JS fallback. With the head
+     bootstrap active, paint its final shape immediately instead of waiting
+     for main.js and header.js to remove hidden and add header-ready. */
+  .js .site-header .header-inner{display:grid;grid-template-columns:minmax(0,1fr) auto;gap:16px}
+  .js .site-header .header-inner>.menu-toggle{display:flex!important;align-items:center;justify-content:center;justify-self:end;gap:12px;min-width:88px;min-height:44px;margin:0;padding:10px 17px;border-radius:100px;font-size:12px;line-height:1.5}
+  .site-header .header-inner>.brand{gap:10px;flex-shrink:0}
+  .site-header .header-inner .brand img{width:35px;height:39px;min-width:35px;flex:0 0 35px}
+  .site-header .header-inner .brand-name,html:lang(gu) .site-header .header-inner .brand-name{font-size:20px}
+  .site-header .header-inner .brand-name small,html:lang(gu) .site-header .header-inner .brand-name small{font-size:9px}
+  .site-header .header-inner>.header-contact{display:none}
+  .site-header .header-inner:not(.header-ready)>:is(.appearance-trigger,.language-trigger){display:none}
+  .header-inner.header-ready{display:grid;grid-template-columns:minmax(0,1fr) auto;height:76px;min-height:76px;gap:16px}
+  .header-ready>.brand{justify-self:start;gap:10px}
+  .header-ready .brand img{width:35px;height:39px}
+  .header-ready .brand-name,html:lang(gu) .header-ready .brand-name{font-size:20px}
+  .header-ready .brand-name small,html:lang(gu) .header-ready .brand-name small{font-size:9px}
+  .header-tools{display:none}
+  .header-ready>.menu-toggle{display:flex;min-width:88px;padding:10px 17px;font-size:12px;justify-self:end}
+  .js .header-ready>.main-nav,.js .header-ready>.main-nav.is-open{display:flex;flex-direction:column;align-items:stretch;position:absolute;left:0;right:0;top:76px;width:100%;max-height:calc(100dvh - 76px);overflow-y:auto;overscroll-behavior:contain;border:0;border-bottom:1px solid var(--line);border-radius:0 0 24px 24px;background:var(--paper);padding:16px var(--gutter) 24px;gap:0}
+  .header-ready>.main-nav>a{width:100%;border-radius:0;min-height:65px;padding:19px 0;border-bottom:1px solid var(--line);font-size:clamp(23px,6vw,34px);line-height:1.2;white-space:normal}
+  .js .header-ready>.main-nav>a{opacity:0;transition:opacity .18s ease;transition-delay:calc((3 - var(--nav-order,0))*35ms)}
+  .js .header-ready>.main-nav.is-open>a{opacity:1;transition-duration:.38s;transition-delay:calc(70ms + var(--nav-order,0)*80ms)}
+  .header-ready>.main-nav>a[aria-current]{color:var(--accent);background:transparent}
+  .header-ready>.main-nav>a:hover:not([aria-current]){background:transparent}
+  .nav-preferences{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));align-items:stretch;grid-auto-rows:1fr;gap:12px;margin-top:22px;opacity:0;transition:opacity .18s ease}
+  .main-nav.is-open>.nav-preferences{opacity:1;transition:opacity .38s ease .39s}
+  .header-ready .nav-preferences>button{display:flex;flex-direction:column;align-items:center;justify-content:center;align-self:stretch;gap:7px;padding:16px 10px;width:100%;height:100%;min-height:104px;min-width:0;aspect-ratio:auto;flex-basis:auto;border-radius:18px;background:var(--white)}
+  .header-ready .nav-preferences>button>svg{width:20px;height:20px;flex:0 0 20px}
+  .nav-preferences .header-control-label{color:var(--muted);font-weight:400}
+  .nav-preferences .header-control-value{color:var(--ink);font-size:14px}
+  .header-ready .language-trigger svg{display:block}
+  html:lang(gu) .header-ready .main-nav>a{font-size:26px;line-height:1.35}
+  .appearance-footer,.cookie-actions{justify-content:center}
+}
+@media(prefers-reduced-motion:reduce){.header-ready>.main-nav>a,.nav-preferences,.main-nav.is-open>.nav-preferences{transition:none}}

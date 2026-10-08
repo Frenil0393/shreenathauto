@@ -1,0 +1,23 @@
+/* A quiet footer entry; no extra header controls or unsolicited install banner. */
+.install-link{appearance:none;border:0;padding:0;background:none;color:var(--accent);font:inherit;line-height:inherit;text-align:start;cursor:pointer}
+.install-link:hover{text-decoration:underline;text-underline-offset:4px}
+.install-link[hidden],.install-native[hidden]{display:none!important}
+html:not(.js) .install-link{display:none}
+.install-dialog{width:min(620px,calc(100vw - 32px));max-height:calc(100dvh - 48px);margin:auto;padding:clamp(24px,4vw,40px);overflow:auto;overscroll-behavior:contain;border:1px solid var(--line);border-radius:24px;background:var(--paper);color:var(--ink)}
+.install-dialog::backdrop{background:#151a176b;backdrop-filter:blur(5px)}
+.install-heading{display:flex;align-items:center;justify-content:space-between;gap:20px;margin-bottom:24px}
+.install-heading .micro{color:var(--muted)}
+.install-dialog h2{font-size:clamp(34px,5vw,52px);line-height:1.08;margin:0 0 20px}
+.install-dialog h2 em{color:var(--accent)}
+.install-dialog>p{font-size:14px;line-height:1.75}
+.install-native{margin-top:22px}
+.install-status{margin-top:18px;color:var(--muted)}
+.install-guide{margin-top:24px;display:grid;gap:0}
+.install-guide section{padding:18px 0;border-top:1px solid var(--line)}
+.install-guide h3{font:600 14px/1.5 var(--font);margin:0 0 6px}
+.install-guide p{font-size:13px;line-height:1.75;color:var(--muted)}
+.install-note{padding-top:16px;border-top:1px solid var(--line);color:var(--muted)}
+.install-footer{display:flex;justify-content:flex-end;margin-top:24px}
+@media(display-mode:standalone){.install-link{display:none!important}}
+@media(max-width:760px){.install-dialog{max-height:calc(100dvh - 24px)}.install-native{width:100%}}
+@media(prefers-reduced-motion:reduce){.install-dialog{scroll-behavior:auto}}

@@ -1,0 +1,56 @@
+/* Homepage only: one full-width scene, softened into the page's live palette. */
+.hero--immersive{padding-top:36px;min-height:740px;background:var(--paper);overflow:hidden;isolation:isolate}
+.hero--immersive>.wrap{position:relative;z-index:2;pointer-events:none}
+.hero--immersive .hero-topline,.hero--immersive .hero-copy,.hero--immersive .hero-bottom{pointer-events:auto}
+.hero--immersive .hero-grid{display:block;min-height:clamp(615px,calc(100svh - 205px),810px);position:static}
+.hero--immersive .hero-copy{width:min(45%,610px);padding:55px 0 66px}
+.hero--immersive .hero-art{--road-feather:clamp(140px,14vw,220px);position:absolute;inset:0;z-index:0;width:100%;height:100%;min-height:0;margin:0;animation:none;isolation:isolate;-webkit-mask-image:linear-gradient(to bottom,#000 calc(100% - var(--hero-road-cutoff,66px) - var(--road-feather)),transparent calc(100% - var(--hero-road-cutoff,66px)),transparent 100%);mask-image:linear-gradient(to bottom,#000 calc(100% - var(--hero-road-cutoff,66px) - var(--road-feather)),transparent calc(100% - var(--hero-road-cutoff,66px)),transparent 100%)}
+.hero--immersive .scene-host{inset:0;z-index:0}
+.hero--immersive .hero-art:after{content:'';position:absolute;inset:0;z-index:1;pointer-events:none;background:linear-gradient(90deg,var(--paper) 0%,var(--paper) 22%,color-mix(in srgb,var(--paper) 96%,transparent) 33%,color-mix(in srgb,var(--paper) 76%,transparent) 42%,color-mix(in srgb,var(--paper) 24%,transparent) 55%,transparent 68%),linear-gradient(0deg,var(--paper) 0%,color-mix(in srgb,var(--paper) 92%,transparent) 6%,transparent 24%,transparent 81%,color-mix(in srgb,var(--paper) 75%,transparent) 94%,var(--paper) 100%)}
+.hero--immersive .hero-bottom{position:relative;background:transparent}
+.hero--immersive .art-coordinate{top:90px;left:auto;right:var(--gutter);z-index:2;font-size:9px}
+.hero--immersive .art-caption{right:var(--gutter);bottom:151px;z-index:2}
+.hero--immersive .scene-controls{left:auto;right:var(--gutter);bottom:87px;z-index:3}
+.hero--immersive .motion-toggle{min-height:44px;background:var(--paper);border-color:var(--line)}
+.hero--immersive .motion-toggle:hover{background:var(--white)}
+.hero--immersive .hero-scene-footer{position:relative;display:flex;align-items:center;justify-content:flex-end;gap:25px;padding:12px 0 20px;pointer-events:auto}
+.hero--immersive .hero-scene-footer .art-caption{position:static;text-align:left;font-size:9px;line-height:1.7}
+.hero--immersive .hero-scene-footer .art-caption:before{display:none}
+.hero--immersive .hero-scene-footer .scene-controls{position:static;flex-shrink:0}
+.hero--immersive .hero-scene-footer{min-height:76px}
+.hero--immersive .hero-scene-footer .scene-controls{min-height:44px}
+.hero--immersive .hero-scene-footer .motion-toggle[hidden]{display:inline-flex!important;visibility:hidden;pointer-events:none}
+@media(max-width:760px){.hero--immersive .hero-scene-footer{justify-content:space-between;gap:16px;padding:8px 0 18px}.hero--immersive .hero-scene-footer .art-caption{font-size:8px}}
+.hero--immersive .scene-status{left:48%;right:5%;z-index:2}
+@media(min-width:761px){
+  /* The street continues through the top/right crop. Only the copy and lower
+     section boundary need a paper blend; no frame around the scene. */
+  .hero--immersive .hero-art:after{background:linear-gradient(90deg,var(--paper) 0%,var(--paper) 22%,color-mix(in srgb,var(--paper) 96%,transparent) 33%,color-mix(in srgb,var(--paper) 76%,transparent) 42%,color-mix(in srgb,var(--paper) 24%,transparent) 55%,transparent 68%),linear-gradient(0deg,var(--paper),color-mix(in srgb,var(--paper) 92%,transparent) 6%,transparent 24%)}
+}
+@media(min-width:1800px){.hero--immersive{min-height:860px}.hero--immersive .hero-grid{min-height:750px}}
+@media(min-width:761px) and (max-width:1100px){.hero--immersive .hero-copy{width:53%;padding-top:65px}.hero--immersive .hero-actions{flex-wrap:wrap;max-width:340px}.hero--immersive .hero-grid{min-height:650px}.hero--immersive .art-caption{font-size:9px}}
+@media(max-width:760px){
+  .hero--immersive{min-height:0;padding-top:28px}
+  .hero--immersive .hero-grid{min-height:0;padding-bottom:clamp(335px,57vw,435px)}
+  .hero--immersive .hero-copy{width:100%;max-width:580px;padding:36px 0 0}
+  .hero--immersive h1{max-width:100%;font-size:clamp(73px,13.7vw,105px)}
+  .hero--immersive .hero-description{max-width:350px}
+  .hero--immersive .hero-art{--road-feather:150px;height:100%;margin:0}
+  .hero--immersive .scene-host{inset:auto -12% 20px;height:clamp(455px,82vw,620px)}
+  .hero--immersive .hero-art:after{background:linear-gradient(180deg,var(--paper) 0%,var(--paper) 43%,color-mix(in srgb,var(--paper) 94%,transparent) 50%,color-mix(in srgb,var(--paper) 46%,transparent) 59%,transparent 69%,transparent 85%,color-mix(in srgb,var(--paper) 85%,transparent) 96%,var(--paper) 100%)}
+  .hero--immersive .art-coordinate{top:auto;bottom:365px;right:var(--gutter);font-size:8px}
+  .hero--immersive .art-caption{bottom:105px;right:var(--gutter);font-size:8px}
+  .hero--immersive .scene-controls{left:var(--gutter);right:auto;bottom:87px}
+  .hero--immersive .scene-status{left:15%;right:15%;padding-top:70px}
+}
+@media(max-width:480px){
+  .hero--immersive h1{font-size:clamp(62px,20.5vw,96px)}
+  .hero--immersive .hero-copy{padding-top:32px}
+  .hero--immersive .hero-grid{padding-bottom:340px}
+  .hero--immersive .scene-host{inset:auto -17% 20px;height:450px}
+  .hero--immersive .hero-actions{flex-wrap:wrap;gap:16px}
+  .hero--immersive .hero-actions .button{min-height:48px}
+  .hero--immersive .hero-actions .micro{font-size:8px}
+  .hero--immersive .art-coordinate{bottom:352px}
+}
+@media print{.hero--immersive{min-height:0;padding-top:0}.hero--immersive .hero-art,.hero--immersive .hero-scene-footer{display:none}.hero--immersive .hero-grid{min-height:0;padding:0}.hero--immersive .hero-copy{width:100%;padding:0}.hero--immersive h1{font-size:50px}}

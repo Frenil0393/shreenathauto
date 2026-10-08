@@ -1,0 +1,4 @@
+/* Accent text links while retaining buttons, card links, logos and navigation. */
+:is(a[href^='tel:'],a[href^='mailto:'],a.text-link,.copy-enquiry,.footer-col>a,.footer-bottom>a,.legal-links>a,.legal-copy a,.form-note a,.cookie-banner p a,.cookie-dialog p a,.breadcrumb a):not(.button):not(.brand){color:var(--accent);text-decoration-color:currentColor}
+.text-link,.copy-enquiry{border-bottom-color:var(--accent)}
+:is(a[href^='tel:'],a[href^='mailto:'],.footer-col>a,.footer-bottom>a,.legal-links>a,.legal-copy a,.form-note a,.breadcrumb a):hover{text-decoration:underline;text-underline-offset:.25em;text-decoration-thickness:1px}

@@ -1,0 +1,3 @@
+html.content-guard body{-webkit-user-select:none;user-select:none}
+html.content-guard :is(input,textarea,select,[contenteditable],a[href^='tel:'],a[href^='mailto:'],address,.legal-copy,[data-allow-copy]),html.content-guard :is(.legal-copy,address,[data-allow-copy]) *{-webkit-user-select:text;user-select:text}
+html.content-guard :is(img,canvas){-webkit-user-drag:none}

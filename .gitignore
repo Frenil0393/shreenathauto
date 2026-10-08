@@ -1,0 +1,21 @@
+# Dependencies & Environment
+node_modules/
+.env
+.env.*
+!.env.example
+
+# OS & Editor Files
+.DS_Store
+Thumbs.db
+*.tmp
+*.bak
+*.swp
+*~
+.idea/
+.vscode/
+
+# Local build / archives
+*.zip
+*.tar.gz
+*.rar
+cleanup-archive/

@@ -1,0 +1,38 @@
+/* Desktop retains site.css native transitions. Mobile uses one coordinated
+   content fade, independent of cross-document API or local file support. */
+@media(min-width:761px){
+  ::view-transition-old(root){animation:none;opacity:1;mix-blend-mode:normal}
+  ::view-transition-new(root){animation:page-content-in .28s ease both;mix-blend-mode:normal}
+  .hero-copy,.hero-art,.editorial-hero h1,.page-intro h1,.page-intro .eyebrow{animation:none}
+}
+@keyframes page-content-in{from{opacity:0}to{opacity:1}}
+/* Local files cannot use cross-document snapshots. Fade their content while
+   keeping the same fully populated header visible, as on the hosted site. */
+@media(min-width:761px){
+  html[data-local-navigation][data-mobile-entry] :is(main,.site-footer){transition:opacity .24s ease}
+  html[data-local-navigation][data-mobile-entry='pending'] :is(main,.site-footer){opacity:0;pointer-events:none}
+  html[data-local-navigation][data-mobile-entry='ready'] :is(main,.site-footer){opacity:1}
+  html[data-local-navigation].is-page-exiting :is(main,.site-footer){opacity:0;transition:opacity .14s ease;pointer-events:none}
+}
+@media(max-width:760px){
+  /* Mobile uses its own opacity transition on every browser/protocol. Never
+     combine this with native snapshots or a second full-screen veil. */
+  @view-transition{navigation:none}
+  html[data-mobile-entry] main,html[data-mobile-entry] .site-footer{transition:opacity .24s ease}
+  html[data-mobile-entry='pending'] main,html[data-mobile-entry='pending'] .site-footer{opacity:0;pointer-events:none}
+  html[data-mobile-entry='ready'] main,html[data-mobile-entry='ready'] .site-footer{opacity:1}
+  html.is-page-exiting main,html.is-page-exiting .site-footer{opacity:0;transition:opacity .14s ease;pointer-events:none}
+  html.is-page-exiting .main-nav.is-open{opacity:0;transition:opacity .14s ease!important;pointer-events:none}
+  .hero-copy,.hero-art,.editorial-hero h1,.page-intro h1,.page-intro .eyebrow{animation:none}
+  /* Show the first completed WebGL frame without a second, staggered fade. */
+  .scene-host canvas,.object-viewport canvas{transition:none}
+  .site-header .header-inner{height:76px;min-height:76px}
+  html{scroll-behavior:auto}
+  html.is-page-navigation .main-nav>a,html.is-page-navigation .nav-preferences{transition:none!important}
+}
+@media(prefers-reduced-motion:reduce){
+  @view-transition{navigation:none}
+  ::view-transition-old(root),::view-transition-new(root){animation:none}
+  html[data-mobile-entry] main,html[data-mobile-entry] .site-footer{opacity:1;transition:none;pointer-events:auto}
+  html[data-local-navigation][data-mobile-entry] :is(main,.site-footer){opacity:1;transition:none;pointer-events:auto}
+}

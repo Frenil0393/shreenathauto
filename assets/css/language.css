@@ -1,0 +1,104 @@
+@import url('https://fonts.googleapis.com/css2?family=Hind+Vadodara:wght@400;500;600&display=optional');
+
+/* An additive type layer: retain the existing palette, artwork and English layout. */
+html[data-language-pending='true'] body{visibility:hidden}
+:lang(gu){font-family:'Hind Vadodara',sans-serif;letter-spacing:0;text-transform:none}
+html:lang(gu){--font:'Hind Vadodara',sans-serif;--mono:'Hind Vadodara',sans-serif;--serif:'Hind Vadodara',serif}
+html:lang(gu) body{line-height:1.85}
+html:lang(gu) :is(h1,h2,h3,h4,em,.micro,.eyebrow,.brand-name,.brand-name small,.footer-wordmark,.object-stage:before,.object-stage:after){letter-spacing:0;text-transform:none}
+html:lang(gu) :is(h1,h2){line-height:1.35;font-weight:500}
+html:lang(gu) :is(h3,h4){line-height:1.5}
+html:lang(gu) em{font-family:var(--serif);font-style:normal;font-size:1em;line-height:inherit;letter-spacing:0}
+html:lang(gu) :is(p,.legal-copy p,.editorial-hero-copy>p,.hero-description){line-height:1.95}
+html:lang(gu) :is(.micro,.eyebrow){font-size:11px;line-height:1.8}
+html:lang(gu) .brand-name{font-size:20px;line-height:1.4;font-weight:600}
+html:lang(gu) .brand-name small{font-size:9px;line-height:1.7}
+html:lang(gu) .hero--immersive h1{font-size:clamp(43px,5.8vw,94px);line-height:1.35;letter-spacing:0}
+html:lang(gu) .hero h1 em{font-size:1em;margin-top:0}
+html:lang(gu) .hero--immersive .hero-copy{width:min(49%,650px)}
+html:lang(gu) .hero-actions{flex-wrap:wrap}
+html:lang(gu) .editorial-hero h1{font-size:clamp(38px,5.1vw,82px);line-height:1.4;letter-spacing:0}
+html:lang(gu) .editorial-hero h1 em{line-height:inherit;letter-spacing:0}
+html:lang(gu) .editorial-hero--policy h1{font-size:clamp(34px,4.7vw,74px)}
+html:lang(gu) .intro-copy h2{font-size:clamp(28px,3.2vw,50px);line-height:1.65;letter-spacing:0}
+html:lang(gu) .section-heading h2,html:lang(gu) .service-stage .section-heading h2{font-size:clamp(33px,4.4vw,65px)}
+html:lang(gu) .service-row h3{font-size:clamp(21px,2.3vw,33px)}
+html:lang(gu) .journey h2{font-size:clamp(34px,4vw,62px)}
+html:lang(gu) .contact-banner h2{font-size:clamp(32px,4.3vw,70px)}
+html:lang(gu) .footer-wordmark{font-size:clamp(50px,12vw,200px);line-height:1.6;letter-spacing:0}
+html:lang(gu) :is(.motion-toggle,.art-caption,.object-stage figcaption){line-height:1.85}
+html:lang(gu) .legal-copy h2{line-height:1.5}
+html:lang(gu) .appearance-heading h2{font-size:28px;line-height:1.45;letter-spacing:0}
+html:lang(gu) .cookie-actions{flex-wrap:wrap}
+html:lang(gu) .object-stage--services:before{content:'નોંધણી / નવીનીકરણ / ટ્રાન્સફર';writing-mode:horizontal-tb;top:3%;font-size:10px}
+html:lang(gu) .object-stage--about:before{content:'જામકંડોરણા';font-size:10px}
+html:lang(gu) .object-stage--about:after{content:'ધોરાજી';font-size:10px}
+html:lang(gu) .object-stage--contact:before{content:'એક પ્રશ્ન → સ્પષ્ટ આગળનું પગલું';font-size:10px}
+
+.language-trigger{display:grid;place-items:center;flex:0 0 44px;width:44px;height:44px;border:1px solid var(--line);border-radius:50%;background:transparent;color:var(--ink);font:500 11px/1 'DM Sans',sans-serif;transition:background .2s,border-color .2s}
+.language-trigger:lang(gu){font:500 15px/1 'Hind Vadodara',sans-serif}
+.language-trigger:hover{background:var(--white);border-color:var(--accent)}
+.language-dialog{width:min(490px,calc(100% - 32px));max-height:calc(100dvh - 32px);overflow:auto;overscroll-behavior:contain;padding:32px;border:1px solid var(--line);border-radius:8px;background:var(--paper);color:var(--ink);box-shadow:0 24px 100px #0004;font:400 14px/1.6 'DM Sans',sans-serif}
+.language-dialog::backdrop{background:#11171099}
+html:has(.language-dialog[open]){overflow:hidden}
+.language-heading{display:flex;justify-content:space-between;align-items:flex-start;gap:12px;margin-bottom:24px}
+.language-heading .micro{font:400 10px/1.9 'DM Sans',sans-serif;letter-spacing:0;text-transform:none;color:var(--muted)}
+.language-dialog h2,html:lang(gu) .language-dialog h2{font:500 30px/1.2 'DM Sans',sans-serif;letter-spacing:-.04em}
+.language-dialog h2>span{display:block;font:400 23px/1.7 'Hind Vadodara',serif;margin-top:9px;letter-spacing:0;color:var(--accent)}
+.language-dialog p{font:400 13px/1.75 'DM Sans',sans-serif;margin-top:20px}
+.language-dialog p>span{display:block;font:400 13px/1.85 'Hind Vadodara',sans-serif;margin-top:4px}
+.language-options{display:grid;grid-template-columns:1fr 1fr;gap:12px;margin-top:28px}
+.language-options button{position:relative;display:flex;align-items:flex-start;gap:16px;flex-direction:column;min-width:0;text-align:left;border:1px solid var(--line);border-radius:5px;padding:22px 20px;background:var(--white);color:var(--ink);transition:border-color .2s,background .2s}
+.language-options button:hover,.language-options button[aria-pressed='true']{border-color:var(--accent);background:var(--accent-light)}
+.language-options button:disabled{cursor:wait}
+.language-symbol{font:400 44px/1.3 'Instrument Serif',Georgia,serif;color:var(--accent)}
+[data-language='gu'] .language-symbol{font-family:'Hind Vadodara',serif}
+.language-options strong{font-size:17px;font-weight:500;line-height:1.7;display:block}
+.language-options small{font-size:11px;line-height:1.9;color:var(--muted);display:block}
+.language-options :lang(en){font-family:'DM Sans',sans-serif}
+.language-check{position:absolute;top:18px;right:16px;color:var(--accent);opacity:0}
+[aria-pressed='true']>.language-check{opacity:1}
+.language-dialog .language-memory{font-size:11px;line-height:1.8}
+.language-dialog .language-memory>span{font-size:11px}
+.language-continue{margin-top:16px;padding:8px 0;min-height:44px;border:0;background:transparent;color:var(--ink);font:400 11px/1.9 'DM Sans',sans-serif;text-align:left;text-decoration:underline;text-underline-offset:4px}
+.language-choosing .cookie-banner{visibility:hidden}
+.language-transition{position:fixed;inset:0;background:var(--paper);z-index:90;opacity:0;pointer-events:auto}
+.language-status{position:fixed;left:50%;bottom:24px;transform:translateX(-50%);width:max-content;max-width:calc(100% - 32px);padding:13px 20px;border:1px solid var(--line);border-radius:5px;background:var(--paper);color:var(--ink);font-size:12px;box-shadow:0 8px 30px #0002;z-index:120;opacity:0;pointer-events:none;transition:opacity .2s}
+.language-status.is-visible{opacity:1}
+@media(min-width:761px) and (max-width:1050px){.header-inner{gap:13px}.main-nav{gap:19px}.header-contact{display:none}.appearance-trigger{margin-left:auto}.main-nav{margin-left:auto}}
+@media(max-width:760px){
+  .language-trigger+.menu-toggle{margin-left:0}
+  html:lang(gu) .hero--immersive .hero-copy{width:100%;max-width:580px}
+  html:lang(gu) .hero--immersive h1{font-size:clamp(43px,9.7vw,72px)}
+  html:lang(gu) .editorial-hero h1{font-size:clamp(35px,8vw,60px)}
+  html:lang(gu) .editorial-hero--policy h1{font-size:clamp(32px,7.3vw,54px)}
+  html:lang(gu) .js .main-nav>a{font-size:25px;line-height:1.6}
+  html:lang(gu) .hero-topline .micro{font-size:9px}
+  html:lang(gu) .hero-scene-footer{flex-wrap:wrap}
+  html:lang(gu) .hero-scene-footer .art-caption{font-size:10px}
+  html:lang(gu) .hero-bottom{flex-wrap:wrap}
+  html:lang(gu) .location-pair{flex-wrap:wrap;gap:12px 22px}
+  html:lang(gu) .hero-foot-note{gap:15px}
+}
+@media(max-width:480px){
+  .header-inner{gap:6px}
+  .header-inner .brand{gap:6px}
+  .header-inner .brand img{width:28px;height:34px}
+  .header-inner .brand-name,html:lang(gu) .header-inner .brand-name{font-size:16px}
+  .header-inner .brand-name small,html:lang(gu) .header-inner .brand-name small{font-size:8px;letter-spacing:0}
+  .header-inner .appearance-trigger,.header-inner .language-trigger{width:38px;height:42px;flex-basis:38px}
+  .header-inner .menu-toggle{min-width:54px;min-height:42px;padding:8px;font-size:11px}
+  html:lang(gu) .hero--immersive h1{font-size:clamp(38px,10vw,48px)}
+  html:lang(gu) .editorial-hero h1{font-size:clamp(32px,8.8vw,42px)}
+  html:lang(gu) .editorial-hero-foot{flex-wrap:wrap;gap:10px}
+  html:lang(gu) .service-row h3{font-size:21px}
+  html:lang(gu) .appearance-swatches{grid-template-columns:repeat(2,minmax(0,1fr))}
+  html:lang(gu) .appearance-footer{flex-wrap:wrap}
+  .language-dialog{padding:24px}
+  .language-dialog h2,html:lang(gu) .language-dialog h2{font-size:27px}
+  .language-dialog h2>span{font-size:21px}
+  .language-options{gap:10px}
+  .language-options button{padding:18px 15px}
+}
+@media(prefers-reduced-motion:reduce){.language-trigger,.language-status,.language-options button{transition:none}.language-transition{display:none}}
+@media print{.language-trigger,.language-dialog,.language-status,.language-transition{display:none!important}}

@@ -1,0 +1,68 @@
+# Deploy in the domain's htdocs root. Public URLs never need .html.
+DirectoryIndex index.html
+ErrorDocument 404 /404.html
+
+<IfModule mod_rewrite.c>
+RewriteEngine On
+
+# This deployment is a static, read-only website. Enquiries open the visitor's email app.
+RewriteCond %{REQUEST_METHOD} !^(GET|HEAD|OPTIONS)$ [NC]
+RewriteRule ^ - [F,L]
+
+# Keep project metadata, local tooling, old source and accidental backups private.
+RewriteRule (^|/)\.(?!well-known(?:/|$)) - [F,L]
+RewriteRule ^(?:tools|shreenath-auto\x20V9)(?:/|$) - [F,L,NC]
+RewriteRule ^(?:PROJECT-GUIDE|README|INFINITYFREE-LAUNCH|LAUNCH-CHECKLIST|SECURITY|WEBSITE-BUILD-PROMPT|PUBLISH-READINESS)\.md$ - [F,L,NC]
+RewriteRule \.(?:bak|old|orig|sql|sqlite|log|ini|toml|ya?ml|zip|7z|tar|gz)$ - [F,L,NC]
+RewriteCond %{REQUEST_FILENAME} -d
+RewriteRule ^assets(?:/|$) - [F,L,NC]
+
+# Apply the production hostname policy only on the production domain.
+RewriteCond %{HTTP_HOST} ^www\.shreenathauto\.me$ [NC]
+RewriteRule ^ https://shreenathauto.me%{REQUEST_URI} [R=301,L,NE]
+RewriteCond %{HTTP_HOST} ^shreenathauto\.me$ [NC]
+RewriteCond %{HTTPS} !=on
+RewriteRule ^ https://shreenathauto.me%{REQUEST_URI} [R=301,L,NE]
+
+# Conventional icon requests use the same high-contrast artwork as the manifest.
+RewriteRule ^favicon\.ico$ assets/images/app-icon/favicon.ico [L]
+RewriteRule ^apple-touch-icon(?:-precomposed)?\.png$ assets/images/app-icon/apple-touch-icon.png [L]
+
+# THE_REQUEST prevents an internal .html rewrite from redirecting in a loop.
+# Query strings are retained; an old shared link still reaches the same page.
+RewriteCond %{THE_REQUEST} \s/+index(?:\.html)?/?[?\s] [NC]
+RewriteRule ^index(?:\.html)?/?$ / [R=301,L,NC]
+RewriteCond %{THE_REQUEST} \s/+(about|services|contact|privacy|terms|cancellations|cookies|copyright|accessibility|offline|404)\.html[?\s] [NC]
+RewriteRule ^(about|services|contact|privacy|terms|cancellations|cookies|copyright|accessibility|offline|404)\.html$ /$1 [R=301,L]
+RewriteRule ^(about|services|contact|privacy|terms|cancellations|cookies|copyright|accessibility|offline)/+$ /$1 [R=301,L]
+RewriteRule ^404/?$ - [R=404,L]
+RewriteRule ^(about|services|contact|privacy|terms|cancellations|cookies|copyright|accessibility|offline)$ $1.html [L]
+</IfModule>
+
+<IfModule mod_mime.c>
+AddType application/manifest+json .webmanifest
+</IfModule>
+<IfModule mod_headers.c>
+Header set X-Content-Type-Options "nosniff"
+Header set Referrer-Policy "strict-origin-when-cross-origin"
+Header set X-Frame-Options "SAMEORIGIN"
+Header set Permissions-Policy "camera=(), microphone=(), geolocation=()"
+Header set Content-Security-Policy "frame-ancestors 'self'"
+Header set X-Permitted-Cross-Domain-Policies "none"
+<FilesMatch "\.(html|json|webmanifest|xml)$">
+Header set Cache-Control "no-store, max-age=0"
+Header set Expires "Thu, 01 Jan 1970 00:00:00 GMT"
+</FilesMatch>
+<FilesMatch "\.(css|js)$">
+Header set Cache-Control "no-cache, max-age=0, must-revalidate"
+Header set Expires "Thu, 01 Jan 1970 00:00:00 GMT"
+</FilesMatch>
+<Files "sw.js">
+Header set Service-Worker-Allowed "/"
+Header set Cache-Control "no-cache, max-age=0, must-revalidate"
+</Files>
+</IfModule>
+
+<IfModule mod_deflate.c>
+AddOutputFilterByType DEFLATE text/html text/plain text/css application/javascript application/json application/xml image/svg+xml
+</IfModule>

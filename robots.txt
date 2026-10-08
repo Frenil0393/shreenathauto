@@ -1,0 +1,14 @@
+# Public pages are available to search engines and AI discovery crawlers.
+# Host-level browser challenges are controlled by InfinityFree, not this file.
+User-agent: *
+Allow: /
+Disallow: /shreenath-auto%20V9/
+Disallow: /tools/
+
+# ChatGPT search discovery. This does not bypass a hosting firewall.
+User-agent: OAI-SearchBot
+Allow: /
+Disallow: /shreenath-auto%20V9/
+Disallow: /tools/
+
+Sitemap: https://shreenathauto.me/sitemap.xml

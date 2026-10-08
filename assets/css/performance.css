@@ -1,0 +1,14 @@
+/* Shared rendering fixes; page compositions are defined in their own styles. */
+.site-header{background:#f5f3ed;backdrop-filter:none;-webkit-backdrop-filter:none}
+.portrait,.office-image{contain:layout paint;isolation:isolate}
+.portrait picture,.office-image picture{display:block;width:100%;height:100%}
+.portrait img,.office-image img{display:block;width:100%;height:100%;object-fit:cover}
+.portrait img,.office-image img,.story-image img,.team-card:hover .portrait img{filter:none}
+.portrait img,.office-image img,.team-card:hover .portrait img,.office-card:hover .office-image img{transform:none;transition:none}
+.story-image{contain:layout paint}.story-image picture{display:block;width:100%}
+/* Move text and small illustrations; fade large photographic surfaces in place. */
+.motion-enabled .team-card.reveal,.motion-enabled .office-card.reveal,.motion-enabled .story-image.reveal{transition:opacity .5s var(--ease);transform:none}
+.motion-enabled .team-card.reveal.is-waiting,.motion-enabled .office-card.reveal.is-waiting,.motion-enabled .story-image.reveal.is-waiting{transform:none}
+.responsive-photo{display:block;max-width:100%}
+@media(hover:none),(pointer:coarse){.team-card:hover .portrait img,.office-card:hover .office-image img{transform:none}.portrait img,.office-image img{transition:none}}
+@media(prefers-reduced-motion:reduce){.motion-enabled .team-card.reveal,.motion-enabled .office-card.reveal,.motion-enabled .story-image.reveal{transition:none}}
