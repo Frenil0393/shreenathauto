@@ -1,0 +1,15 @@
+.inquiry-form .enquiry-submit{position:relative;display:flex;align-items:center;justify-content:center;gap:12px;min-height:54px;overflow:hidden;transition:background-color .25s,box-shadow .25s}
+.enquiry-submit:disabled{cursor:wait;opacity:1}
+.enquiry-indicator{position:relative;display:inline-block;width:20px;height:20px;flex:0 0 20px}
+.enquiry-indicator:before{content:'↗';position:absolute;inset:0;line-height:20px;text-align:center}
+[data-submit-state="sending"] .enquiry-indicator:before{content:'';border:2px solid currentColor;border-right-color:transparent;border-radius:50%;animation:enquiry-spin .8s linear infinite}
+[data-submit-state="success"] .enquiry-indicator:before{content:'';width:12px;height:7px;top:4px;left:3px;border-left:2px solid currentColor;border-bottom:2px solid currentColor;transform:rotate(-45deg);animation:enquiry-check .35s ease both}
+[data-submit-state="error"] .enquiry-indicator:before{content:'!';border:1px solid currentColor;border-radius:50%;font-size:13px;line-height:18px}
+.inquiry-form .form-status{min-height:3.5em;margin-top:16px;line-height:1.6;color:var(--ink);font-size:13px}
+.inquiry-form[data-submit-state="success"] .form-status,.inquiry-form[data-submit-state="error"] .form-status{animation:enquiry-confirm .3s ease both}
+.inquiry-form[data-submit-state="sending"] .field{opacity:.7;transition:opacity .2s}
+.enquiry-submit:focus-visible{outline:2px solid var(--accent);outline-offset:4px}
+@keyframes enquiry-spin{to{transform:rotate(360deg)}}
+@keyframes enquiry-check{from{opacity:0;transform:rotate(-45deg) scale(.5)}to{opacity:1;transform:rotate(-45deg) scale(1)}}
+@keyframes enquiry-confirm{from{opacity:.1;transform:translateY(4px)}to{opacity:1;transform:translateY(0)}}
+@media(prefers-reduced-motion:reduce){.enquiry-indicator:before,.inquiry-form .form-status{animation:none!important}.inquiry-form .field,.enquiry-submit{transition:none}}

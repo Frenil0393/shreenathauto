@@ -1,0 +1,17 @@
+/* The illustrations are real SVG paths, independent of JavaScript and WebGL. */
+.scene-still{position:absolute;top:0;left:0;width:100%;height:100%;object-fit:contain;pointer-events:none;opacity:1}
+[data-scene-mode="live"] .scene-still{visibility:hidden;opacity:0}
+.is-fallback .scene-still,[data-scene-mode="still"] .scene-still{visibility:visible;opacity:1}
+.is-fallback canvas{visibility:hidden!important;opacity:0!important}
+.is-fallback .scene-status,[data-scene-mode="still"] .scene-status{display:none}
+.scene-host .scene-still{object-fit:cover}
+.is-fallback .object-motion-toggle,[data-scene-mode="still"] .object-motion-toggle,[data-scene-mode="still"] .motion-toggle{visibility:hidden!important;pointer-events:none}
+:root[data-theme="dark"] .scene-still{filter:brightness(.78) saturate(.85)}
+@media(min-width:761px){.hero--immersive .scene-host .scene-still{left:22%;width:88%}}
+@media(max-width:760px){.scene-host .scene-still{object-fit:contain}}
+/* Keep the composition readable when the browser predates color-mix(). */
+@supports not (color:color-mix(in srgb,white,black)){
+  .hero--immersive .hero-art:after{background:linear-gradient(90deg,var(--paper) 4%,transparent 70%),linear-gradient(0deg,var(--paper),transparent 25%)}
+  @media(max-width:760px){.hero--immersive .hero-art:after{background:linear-gradient(180deg,var(--paper) 40%,transparent 68%),linear-gradient(0deg,var(--paper),transparent 22%)}}
+}
+@media print{.scene-still{display:none}}

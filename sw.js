@@ -1,9 +1,9 @@
 /* Fetch documents from the network, with a small offline contact page only.
    Never cache enquiry contents, full pages, analytics or hosting challenges. */
 'use strict';
-const CACHE='shreenath-auto-pwa-20261008-r13';
+const CACHE='shreenath-auto-pwa-20261010-r25';
 const OFFLINE='/offline';
-const FILES=[OFFLINE,'/assets/css/offline.css?v=20261008-r13','/assets/js/offline.js?v=20261008-r13','/assets/images/app-icon/icon-192.png?v=20261008-r13','/assets/images/app-icon/icon-512.png?v=20261008-r13'];
+const FILES=[OFFLINE,'/assets/css/offline.css?v=20261010-r14','/assets/js/offline.js?v=20261010-r14','/assets/images/app-icon/icon-192.png?v=20261010-r25','/assets/images/app-icon/icon-512.png?v=20261010-r25'];
 self.addEventListener('install',event=>{
   event.waitUntil((async()=>{
     // Reject challenge/error pages rather than saving them as the offline app.

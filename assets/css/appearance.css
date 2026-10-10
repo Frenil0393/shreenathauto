@@ -9,6 +9,10 @@
 .button:not(.outline):hover,.consent-button.primary:hover{color:var(--accent-ink)}
 .consent-button.primary,.consent-button:hover{color:var(--paper)}
 .consent-button:disabled{color:var(--muted)}
+/* The affirmative choice follows the selected accent in both themes. */
+.consent-button[data-consent='accept']:not(:disabled){background:var(--accent);border-color:var(--accent);color:var(--accent-ink);transition:background .25s,color .25s,box-shadow .25s}
+.consent-button[data-consent='accept']:not(:disabled):hover{box-shadow:inset 0 0 0 999px #00000012}
+.consent-button[data-consent='accept']:focus-visible{outline:2px solid var(--accent);outline-offset:3px}
 .skip-link,.service-row:hover .round-arrow{color:var(--paper)}
 :root[data-theme='dark'] .brand img{filter:brightness(0) invert(.92)}
 :root[data-theme='dark'] .intro-copy h2 .muted{color:#a6ad9c}

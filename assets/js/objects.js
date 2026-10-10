@@ -4,6 +4,7 @@
   'use strict';
   const stages = [...document.querySelectorAll('[data-object]')];
   if (!stages.length) return;
+  if (!window.ShreenathSceneSupport?.live) { stages.forEach(stage => window.ShreenathSceneSupport?.show(stage)); return; }
   const reduced = matchMedia('(prefers-reduced-motion: reduce)');
   const finePointer = matchMedia('(hover: hover) and (pointer: fine)');
   let library, leaving = false;
@@ -291,7 +292,7 @@
         if(!lastShadow||now-lastShadow>120||!live){renderer.shadowMap.needsUpdate=true;lastShadow=now;}
         renderer.render(scene,camera);
         const firstFrame=!stage.classList.contains('is-ready');
-        stage.classList.add('is-ready'); stage.setAttribute('aria-busy', 'false'); clearTimeout(wait);
+        stage.classList.add('is-ready'); window.ShreenathSceneSupport?.ready(stage); stage.setAttribute('aria-busy', 'false'); clearTimeout(wait);
         if(firstFrame&&stage.closest('.editorial-hero,.hero,.error-page'))dispatchEvent(new CustomEvent('shreenath:hero-ready'));
         if (status) status.textContent = '';
         if(live||Math.abs(targetX-currentX)+Math.abs(targetY-currentY)>.0003)requestRender();else previousTime=0;
@@ -332,8 +333,8 @@
       reduced.addEventListener('change',reset);
       const engine={scroll,reset,requestRender,ambientMotion};engines.add(engine);
       syncMotionButton();
-      renderer.domElement.addEventListener('webglcontextlost',event=>{event.preventDefault();lost=true;cancelAnimationFrame(frame);frame=0;stage.classList.remove('is-ready');stage.setAttribute('aria-busy','true');if(status)status.textContent='Restoring the sculpture…';});
-      renderer.domElement.addEventListener('webglcontextrestored',()=>{lost=false;palette();resize();requestRender();});
+      renderer.domElement.addEventListener('webglcontextlost',event=>{event.preventDefault();lost=true;cancelAnimationFrame(frame);frame=0;stage.classList.remove('is-ready');stage.setAttribute('aria-busy','true');window.ShreenathSceneSupport?.show(stage);});
+      renderer.domElement.addEventListener('webglcontextrestored',()=>{lost=false;palette();resize();syncMotionButton();requestRender();});
       cleanup=()=>{
         if(disposed)return;disposed=true;editorialScene?.dispose?.();clearTimeout(wait);removeEventListener('shreenath:appearance',palette);cancelAnimationFrame(frame);resizeObserver.disconnect();observer.disconnect();engines.delete(engine);syncMotionButton();
         stage.removeEventListener('pointermove',pointer);stage.removeEventListener('pointerleave',reset);reduced.removeEventListener('change',reset);
@@ -355,7 +356,7 @@
     }catch{
       clearTimeout(wait);cleanup();renderer?.dispose();renderer?.domElement.remove();stage.classList.remove('is-ready');
       stage.setAttribute('aria-busy','false');
-      if(status)status.textContent='The 3D sculpture is unavailable on this browser or connection.';
+      window.ShreenathSceneSupport?.show(stage);
       if(stage.closest('.editorial-hero,.hero,.error-page'))dispatchEvent(new CustomEvent('shreenath:hero-ready'));
     }
   }

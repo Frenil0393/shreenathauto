@@ -56,8 +56,8 @@
     const method = href.startsWith('tel:') ? 'phone' : href.startsWith('mailto:') ? 'email' : href.includes('google.com/maps/') ? 'directions' : null;
     if (method) window.gtag('event', 'contact_click', { contact_method: method });
   });
-  window.addEventListener('shreenath:enquiry-prepared', event => {
+  window.addEventListener('shreenath:enquiry-sent', event => {
     if (!enabled || !allowed()) return;
-    window.gtag('event', 'enquiry_prepared', { service: event.detail.service, branch: event.detail.branch });
+    window.gtag('event', 'enquiry_sent', { service: event.detail.service, branch: event.detail.branch });
   });
 })();

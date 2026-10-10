@@ -1,4 +1,4 @@
-/* Progressive enhancement: never hide the browser rail until ours is ready. */
+/* CSS hides the viewport rail from first paint; this adds the draggable control. */
 (() => {
   'use strict';
   const root = document.documentElement;

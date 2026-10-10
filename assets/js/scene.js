@@ -5,6 +5,7 @@
   'use strict';
   const host = document.querySelector('#road-scene');
   if (!host) return;
+  if (!window.ShreenathSceneSupport?.live) { window.ShreenathSceneSupport?.show(host); return; }
   const status = host.querySelector('.scene-status'), button = document.querySelector('.motion-toggle');
   const reduced = matchMedia('(prefers-reduced-motion: reduce)');
   const fine = matchMedia('(hover: hover) and (pointer: fine)');
@@ -594,7 +595,7 @@
         if (settling) renderer.shadowMap.needsUpdate = true;
         traffic(simulation, moving ? dt : 0);
         renderer.render(scene, camera);
-        if (!host.classList.contains('is-ready')) { host.classList.add('is-ready'); host.setAttribute('aria-busy', 'false'); clearTimeout(wait); if (status) status.textContent = ''; dispatchEvent(new CustomEvent('shreenath:hero-ready')); }
+        if (!host.classList.contains('is-ready')) { host.classList.add('is-ready'); window.ShreenathSceneSupport?.ready(host); host.setAttribute('aria-busy', 'false'); clearTimeout(wait); if (status) status.textContent = ''; dispatchEvent(new CustomEvent('shreenath:hero-ready')); }
         if (moving || settling) requestRender(); else last = 0;
       }
       function palette() {
@@ -656,8 +657,8 @@
       button?.addEventListener('click', toggle); reduced.addEventListener('change', motion);
       addEventListener('shreenath:appearance', palette); document.addEventListener('visibilitychange', visibility);
       addEventListener('shreenath:language', language); addEventListener('shreenath:language-fonts', language);
-      renderer.domElement.addEventListener('webglcontextlost', event => { event.preventDefault(); lost = true; stop(); host.classList.remove('is-ready'); host.setAttribute('aria-busy', 'true'); if (status) status.textContent = 'Restoring the street scene…'; });
-      renderer.domElement.addEventListener('webglcontextrestored', () => { lost = false; palette(); resize(); });
+      renderer.domElement.addEventListener('webglcontextlost', event => { event.preventDefault(); lost = true; stop(); host.classList.remove('is-ready'); host.setAttribute('aria-busy', 'true'); window.ShreenathSceneSupport?.show(host); });
+      renderer.domElement.addEventListener('webglcontextrestored', () => { lost = false; palette(); resize(); motion(); });
       const show = event => { if (event.persisted) { palette(); resize(); } };
       // Stop animation on exit. The document owns its GPU resources; traversing
       // and disposing every mesh during pagehide stalls the outgoing transition.
@@ -680,7 +681,7 @@
     } catch {
       cleanup(); clearTimeout(wait); renderer?.dispose(); renderer?.domElement.remove(); host.classList.remove('is-ready'); host.setAttribute('aria-busy', 'false');
       if (button) button.hidden = true;
-      if (status) status.textContent = 'The 3D street scene is unavailable on this browser or connection.';
+      window.ShreenathSceneSupport?.show(host);
       dispatchEvent(new CustomEvent('shreenath:hero-ready'));
     }
   }

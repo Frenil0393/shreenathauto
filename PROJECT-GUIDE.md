@@ -1,5 +1,60 @@
 # Shreenath Auto Advisers — Project Guide
 
+## Solid grille, hollow centre — 10 October 2026 (r25)
+
+Corrected the favicon per the owner’s clarification: both grille/air-vent openings are now solid, and the round central badge is hollow again. Regenerated all browser and shortcut icon exports and advanced their cache versions. The windshield, headlights, hands and rounded background are preserved.
+
+## Filled favicon badge — 10 October 2026 (r24)
+
+Filled the round central car badge in the favicon while retaining the windshield, grille, headlights, hands and rounded background. Regenerated browser PNG/ICO, Apple and Android maskable icons from the SVG. Updated icon URLs, manifest and offline cache version for the new exports. The full-size website logo is unchanged.
+
+## Page transitions and analytics button — 10 October 2026 (r23)
+
+Desktop browsers without cross-document transitions now receive the coordinated content fade already used for mobile and local previews. Native desktop transitions use a 460ms entrance; the fallback uses a 180ms exit and 420ms entrance, keeping the header outside the fading content. Back/forward cache restoration no longer hides the restored scene for two frames. Reduced-motion preferences remain respected. Enabled Accept analytics buttons use the selected theme accent and contrasting accent text in the banner and preferences dialog; availability and consent logic are unchanged. Shared asset references and release markers are updated. No browser tests were run.
+
+## Index image references — 10 October 2026 (r22)
+
+Replaced the index page’s old responsive photos with the existing editorial portraits and office images, including all WebP source candidates and JPEG fallbacks. The largest source now correctly points to the 1120px export. Restored the SVG header/footer logo and updated index social-preview and structured-data image references. Existing dimensions, image loading behaviour and layout are preserved. No browser tests were run.
+
+## Scrollbar loading flash — 10 October 2026 (r21)
+
+The shared scrollbar stylesheet now hides the native viewport scrollbar from first paint instead of waiting for the deferred custom rail script. This removes the temporary native rail and its page-width change during navigation. Inner scrollable panels retain their scrollbars, and forced-colour accessibility mode retains the native viewport rail. Updated scrollbar asset references across all site pages. No browser tests were run.
+
+## Index hero loading repair — 10 October 2026 (r20)
+
+Restored the missing scene-support bootstrap before the index transition and scene scripts. Without it, both scripts skipped the Three.js scene. Restored the local street illustration and its fallback styles for unsupported graphics or loading failures. Updated index script cache versions and release markers; existing hero content and layout are preserved. No browser tests were run.
+
+## Slim desktop underline — 10 October 2026 (r19)
+
+The desktop active-page indicator is now a 1px theme-coloured underline matching the label width. Hover and keyboard focus reveal the line with a smooth horizontal animation; the current page keeps its line visible. Brackets are removed, link positions remain stable and reduced-motion settings disable the transition. Header asset versions are updated across pages.
+
+## Desktop active-page brackets — 10 October 2026 (r18)
+
+The desktop current-page indicator now uses fine editorial brackets around its theme-coloured label. The brackets occupy the existing padding, with a gentle opacity transition and reduced-motion support. This replaces the r17 dot; mobile navigation and link positions are preserved.
+
+## Desktop navigation refinement — 10 October 2026 (r17)
+
+Desktop navigation now uses a small accent-colour dot beside the current page, with an ink-coloured active label and muted other links. The tinted tile and its border are removed. The dot fits inside the existing padding, preserving the centred navigation and preventing layout movement. Hover, keyboard focus and reduced-motion handling remain available. Mobile navigation is unchanged.
+
+## Original solid favicon and desktop navigation — 10 October 2026 (r16)
+
+The favicon now derives from the original logo's exact outer contours, preserving the car, hands and cuffs instead of the simplified r15 silhouette. The interior body, palms and cuffs are filled; the windscreen, headlights, grille and cuff buttons retain contrasting openings. Rounded browser icons, opaque Apple touch icons and safely padded Android maskable icons are exported from this SVG. The desktop active navigation link uses a subtle accent-tinted tile and inset border, with a consistent font weight to avoid changing its width. Header CSS, icon URLs, manifest and offline-cache versions are updated.
+
+## Solid favicon — 10 October 2026 (r15)
+
+The favicon uses a dedicated solid car-and-hands symbol for small sizes, with a rounded ivory background and dark green fill. All browser PNG/ICO, SVG, Apple touch and Android maskable icons derive from this master at `assets/images/app-icon/favicon.svg`. The detailed header/footer logo is separate. Icon references, the manifest and the offline cache have new versions so updates can be fetched. Existing installed shortcuts may still need to be removed and added again if the device retains an old icon.
+
+## Latest update — 10 October 2026 (r14)
+
+- Active project: `D:\Work\Shreenath - Web\shreenath-auto V10` (confirmed by the owner). The previous New concept path no longer exists.
+- The logo is a genuine SVG with filled, even-odd vector paths traced from the original logo's alpha contours. The hand-drawn approximation was replaced at the owner's request. Header/footer and Organization structured data use this master. Favicon SVG and PNG/ICO app exports derive from the corrected master; install formats still need PNG files.
+- New generated portraits: Jasmin uses uploaded photos 1 + 6, Chetan 2 + 3, Divyesh 4 + 5, as confirmed by the owner. Matching ivory shirts and neutral backgrounds. Two retouched office images use the existing branch references. Responsive exports are in `assets/images/editorial/`; original photos remain available and are not deleted.
+- Modern browsers retain the existing live scenes. `scene-support.js` is an ES5 capability bootstrap; unsupported WebGL2, load failures and lost GPU contexts display local perspective SVG illustrations from `assets/images/scene-stills/`. These are still illustrations, not a claim that legacy hardware runs the live WebGL scenes. The existing scene dimensions stay reserved. This is not a promise of full Internet Explorer compatibility for all site features.
+- Web3Forms keys and endpoint are preserved. `enquiry.js` handles pending, success and error states independently of decorative scripts. It prevents duplicate sends, preserves failed enquiries, locks fields during sending and uses a 30-second timeout with an honest unconfirmed-delivery message. Success requires a 2xx response and `success: true`. English/Gujarati messages, reduced-motion styles and live announcements are included. The analytics event is now `enquiry_sent`, contains only service/branch, and continues to require analytics consent.
+- Privacy, terms and accessibility descriptions now match this implementation. They describe form delivery and fallbacks; this update is not a legal compliance certification.
+- Before deployment, the owner should inspect all generated portraits for likeness, upload all changed files (including assets, manifest, release.json and sw.js), and send one real enquiry on each configured hosted domain to confirm receipt. No real enquiry was sent during development and no physical Windows 7 device was available.
+
+
 Updated 8 October 2026. This is the project's single owner document. It consolidates the former README, publishing instructions, launch checklist, readiness report, security notes and icon-generation notes.
 
 ## Current project and cleanup

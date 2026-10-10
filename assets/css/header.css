@@ -23,10 +23,13 @@ html:not(.js) .header-ready>.menu-toggle{display:none!important}
 .header-ready>.main-nav>a[aria-current]{background:transparent;color:var(--accent)}
 .header-ready>.main-nav>a:hover:not([aria-current]){background:transparent;color:var(--accent)}
 @media(min-width:761px){
-  /* A shape as well as colour identifies the current page, without a capsule. */
-  .header-inner>.main-nav>a{position:relative}
-  .header-inner>.main-nav>a[aria-current='page']{color:var(--accent);font-weight:600}
-  .header-inner>.main-nav>a[aria-current='page']:after{display:block;content:'';position:absolute;left:50%;right:auto;bottom:2px;width:22px;height:3px;border-radius:2px;background:currentColor;transform:translateX(-50%)}
+  /* A text-width hairline animates on hover and rests beneath the current page. */
+  .header-inner>.main-nav>a{--nav-underline-inset:17px;position:relative;border-radius:0;font-weight:500;color:var(--muted);background:transparent;box-shadow:none;transition:color .2s ease}
+  .header-inner>.main-nav>a:before{display:none;content:none}
+  .header-inner>.main-nav>a:after{content:'';display:block;position:absolute;left:var(--nav-underline-inset);right:var(--nav-underline-inset);top:auto;bottom:7px;width:auto;height:1px;border:0;border-radius:0;background:var(--accent);opacity:0;transform:scaleX(0);transform-origin:left center;transition:transform .34s cubic-bezier(.22,1,.36,1),opacity .22s ease;pointer-events:none}
+  .header-inner>.main-nav>a[aria-current='page']{color:var(--accent);font-weight:500;background:transparent;box-shadow:none}
+  .header-inner>.main-nav>a:hover:after,.header-inner>.main-nav>a:focus-visible:after,.header-inner>.main-nav>a[aria-current='page']:after{opacity:1;transform:scaleX(1)}
+  .header-inner>.main-nav>a:focus-visible{outline:2px solid var(--accent);outline-offset:3px}
 }
 .header-tools{display:flex;align-items:center;justify-content:flex-end;justify-self:end;gap:8px}
 .header-tools .header-contact{display:flex;align-items:center;justify-content:center;text-align:center;gap:12px;padding:12px 17px;min-height:44px;border:1px solid var(--line);border-radius:100px;font-size:12px;margin:0;white-space:nowrap}
@@ -47,14 +50,14 @@ html:not(.js) .header-ready>.menu-toggle{display:none!important}
 @media(min-width:761px) and (max-width:1200px){
   .header-tools .header-contact{display:none}
   .header-inner.header-ready{gap:14px}
-  .header-ready>.main-nav>a{padding-inline:12px}
+  .header-ready>.main-nav>a{--nav-underline-inset:12px;padding-inline:12px}
   .header-ready :is(.appearance-trigger,.language-trigger){padding-inline:11px}
   .header-tools .appearance-trigger .header-control-copy{display:none}
 }
 @media(min-width:761px) and (max-width:920px){
   .header-inner.header-ready{gap:10px}
   .header-ready>.main-nav{gap:0}
-  .header-ready>.main-nav>a{padding-inline:9px;font-size:11px}
+  .header-ready>.main-nav>a{--nav-underline-inset:9px;padding-inline:9px;font-size:11px}
   .header-tools{gap:6px}
   .header-tools .language-trigger svg{display:none}
   .header-ready :is(.appearance-trigger,.language-trigger){padding-inline:10px}
@@ -99,4 +102,4 @@ html:not(.js) .header-ready>.menu-toggle{display:none!important}
   html:lang(gu) .header-ready .main-nav>a{font-size:26px;line-height:1.35}
   .appearance-footer,.cookie-actions{justify-content:center}
 }
-@media(prefers-reduced-motion:reduce){.header-ready>.main-nav>a,.nav-preferences,.main-nav.is-open>.nav-preferences{transition:none}}
+@media(prefers-reduced-motion:reduce){.header-ready>.main-nav>a,.header-inner>.main-nav>a:before,.header-inner>.main-nav>a:after,.nav-preferences,.main-nav.is-open>.nav-preferences{transition:none}}

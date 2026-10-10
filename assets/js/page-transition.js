@@ -1,23 +1,26 @@
-/* Head bootstrap: one coordinated mobile entry, including local file previews.
-   Desktop keeps native document transitions; links still perform real navigation. */
+/* Native desktop transitions, with a coordinated content fade on mobile,
+   local previews and browsers without cross-document transition support. */
 (() => {
   'use strict';
   const root = document.documentElement;
   const mobile = matchMedia('(max-width: 760px)');
   const reduced = matchMedia('(prefers-reduced-motion: reduce)');
   // Begin the shared dependency request before parsing styles and page content.
-  window.SHREENATH_THREE = import('https://cdn.jsdelivr.net/npm/three@0.180.0/build/three.module.js').catch(() => null);
+  window.SHREENATH_THREE = window.ShreenathSceneSupport?.live ? import('https://cdn.jsdelivr.net/npm/three@0.180.0/build/three.module.js').catch(() => null) : Promise.resolve(null);
   let domReady = false, heroReady = false, revealed = false, leaving = false;
   let entryTimer, recoveryTimer;
   const localPreview=location.protocol==='file:';
   if(localPreview)root.dataset.localNavigation='true';
-  const enhanced = () => (mobile.matches || localPreview) && !reduced.matches;
+  const nativeNavigation = !localPreview && 'onpagereveal' in window &&
+    window.CSS && CSS.supports('view-transition-name', 'site-header');
+  const enhanced = () => (mobile.matches || !nativeNavigation) && !reduced.matches;
   function reveal() {
     if (revealed) return;
     revealed = true; clearTimeout(entryTimer);
     if (!enhanced()) { delete root.dataset.mobileEntry; return; }
     // Two frames give the already laid-out content a stable opacity start.
     requestAnimationFrame(() => requestAnimationFrame(() => {
+      if (leaving) return;
       root.dataset.mobileEntry = 'ready';
       dispatchEvent(new CustomEvent('shreenath:page-visible'));
     }));
@@ -53,15 +56,17 @@
     if (leaving) return;
     leaving = true;
     root.classList.add('is-page-navigation', 'is-page-exiting');
-    setTimeout(() => { location.assign(url.href); }, 140);
+    setTimeout(() => { location.assign(url.href); }, 180);
     recoveryTimer = setTimeout(resetExit, 4000);
   }, true);
   addEventListener('pageshow', event => {
     resetExit();
     if (event.persisted) {
-      revealed = false;
-      if (enhanced()) root.dataset.mobileEntry = 'pending';
-      reveal();
+      // Restored pages already have their scene and scroll position.
+      revealed = true;
+      if (enhanced()) root.dataset.mobileEntry = 'ready';
+      else delete root.dataset.mobileEntry;
+      dispatchEvent(new CustomEvent('shreenath:page-visible'));
     }
   });
   addEventListener('pagehide', () => { clearTimeout(entryTimer); clearTimeout(recoveryTimer); });
