@@ -151,61 +151,72 @@
     const select = form.querySelector('#service');
     const requested = new URLSearchParams(location.search).get('service');
     if ([...select.options].some(option => option.value === requested)) select.value = requested;
-    let preparedText = '';
-    let draftUrl = '';
-    const result = form.querySelector('.prepared-message');
     const status = form.querySelector('.form-status');
-    const draftLink = form.querySelector('#email-draft');
-    const copyFallback = form.querySelector('.copy-fallback');
-    function clearDraft() {
-      result.hidden = true;
-      copyFallback.hidden = true;
-      status.textContent = '';
-      preparedText = '';
-      draftUrl = '';
+    const submitBtn = form.querySelector('button[type="submit"]');
+    const accessKeyInput = form.querySelector('input[name="access_key"]');
+    const host = location.hostname.toLowerCase();
+    const domainKeys = window.SHREENATH_CONFIG?.web3formsKeys || {};
+    const activeKey = domainKeys[host] || (host.includes('shreenathauto.gt.tc') ? 'a8b81652-0b51-479d-8ba7-74c54e1d6e9b' : (domainKeys.default || 'cb564097-0c86-4296-ae5f-87f143730b42'));
+    if (accessKeyInput && activeKey) accessKeyInput.value = activeKey;
+
+    function clearStatus() {
+      if (status && status.dataset.success !== 'true') status.textContent = '';
     }
-    form.addEventListener('input', clearDraft);
-    addEventListener('shreenath:language', clearDraft);
-    form.addEventListener('submit', event => {
+    form.addEventListener('input', clearStatus);
+
+    form.addEventListener('submit', async event => {
       event.preventDefault();
       if (!form.reportValidity()) return;
+      if (accessKeyInput && activeKey) accessKeyInput.value = activeKey;
       const data = new FormData(form);
-      const name = String(data.get('name')).trim();
-      const phone = String(data.get('phone')).trim();
-      const message = String(data.get('message')).trim();
+      if (activeKey) data.set('access_key', activeKey);
+      const name = String(data.get('name') || '').trim();
+      const phone = String(data.get('phone') || '').trim();
+      const message = String(data.get('message') || '').trim();
       if (!name || message.length < 5 || !/^[+0-9() .\-]{7,25}$/.test(phone) || phone.replace(/\D/g, '').length < 7) {
-        status.textContent = 'Please add your name, a valid phone number, and a short message.';
+        if (status) status.textContent = 'Please add your name, a valid phone number, and a short message.';
         return;
       }
-      const service = String(data.get('service'));
-      const branch = String(data.get('branch'));
+      const service = String(data.get('service') || '');
+      const branch = String(data.get('branch') || '');
       const translate = value => window.ShreenathLanguage?.text(value) ?? value;
-      preparedText = `${translate('Hello Shreenath Auto Advisers,')}\n\n${translate('I would like help with:')} ${translate(service)}\n${translate('Preferred branch:')} ${translate(branch)}\n\n${message}\n\n${translate('Name:')} ${name}\n${translate('Phone:')} ${phone}\n${translate('Email:')} ${String(data.get('email') || '').trim() || translate('Not provided')}`;
-      const subject = `${translate('RTO enquiry')} — ${translate(service)} — ${translate(branch)}`;
-      const email = window.SHREENATH_CONFIG?.email || 'shreenath.auto3930@gmail.com';
-      // Keep enquiry contents out of link attributes and automatic link tracking.
-      draftUrl = `mailto:${email}?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(preparedText)}`;
-      draftLink.href = `mailto:${email}`;
-      result.hidden = false;
-      status.textContent = 'Your message is prepared. It has not been sent yet.';
-      draftLink.focus({ preventScroll: true });
-      window.dispatchEvent(new CustomEvent('shreenath:enquiry-prepared', { detail: { service, branch } }));
-    });
-    draftLink.addEventListener('click', event => {
-      event.preventDefault();
-      if (draftUrl) location.href = draftUrl;
-    });
-    form.querySelector('.copy-enquiry').addEventListener('click', async () => {
-      if (!preparedText) return;
+
+      if (submitBtn) {
+        submitBtn.disabled = true;
+        submitBtn.setAttribute('aria-busy', 'true');
+      }
+      if (status) {
+        status.dataset.success = 'false';
+        status.textContent = translate('Sending enquiry...');
+      }
+
       try {
-        await navigator.clipboard.writeText(preparedText);
-        status.textContent = 'Message copied. Paste it into your email app and send it to our team.';
-      } catch {
-        copyFallback.hidden = false;
-        copyFallback.value = preparedText;
-        copyFallback.focus();
-        copyFallback.select();
-        status.textContent = 'Select and copy the message below, then paste it into your email app.';
+        const response = await fetch(form.action, {
+          method: 'POST',
+          body: data,
+          headers: { 'Accept': 'application/json' }
+        });
+        const result = await response.json();
+        if (response.ok && result.success) {
+          if (status) {
+            status.dataset.success = 'true';
+            status.textContent = translate('Thank you! Your enquiry has been sent successfully. We will get back to you shortly.');
+          }
+          form.reset();
+          window.dispatchEvent(new CustomEvent('shreenath:enquiry-prepared', { detail: { service, branch } }));
+        } else {
+          throw new Error(result.message || 'Submission failed');
+        }
+      } catch (err) {
+        if (status) {
+          status.dataset.success = 'false';
+          status.textContent = translate('Sorry, there was an issue sending your message. Please call or email us directly.');
+        }
+      } finally {
+        if (submitBtn) {
+          submitBtn.disabled = false;
+          submitBtn.removeAttribute('aria-busy');
+        }
       }
     });
   }
