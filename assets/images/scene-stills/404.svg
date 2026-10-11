@@ -1,1 +1,84 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 620"><title>Shreenath — 404 illustration</title><defs><linearGradient id="ivory" x2=".8" y2="1"><stop stop-color="#fffdf4"/><stop offset="1" stop-color="#d8d6c8"/></linearGradient><linearGradient id="clay" x2="1" y2="1"><stop stop-color="#d49476"/><stop offset="1" stop-color="#a35a40"/></linearGradient><linearGradient id="glass" x2="1" y2="1"><stop stop-color="#b9d4ce"/><stop offset=".5" stop-color="#688d88"/><stop offset="1" stop-color="#c1d6cd"/></linearGradient><linearGradient id="gold" x2="1" y2="1"><stop stop-color="#eee0b6"/><stop offset=".5" stop-color="#c9a868"/><stop offset="1" stop-color="#a68a56"/></linearGradient></defs><ellipse cx="400" cy="492" rx="202" ry="49" fill="#b5bea7" opacity=".15"/><path d="M225 446a175 39 0 0 0 350 0v19a175 39 0 0 1-350 0Z" fill="#c1c9b4"/><ellipse cx="400" cy="446" rx="175" ry="39" fill="#e4e7d8"/><path d="M403 433V170" stroke="#8b987f" stroke-width="18"/><path d="m262 166 225 20 43 47-50 38-218-21Z" fill="url(#ivory)"/><path d="m317 282 187 15v66l-187-15-43-38Z" fill="url(#clay)"/><text x="321" y="231" font-family="Arial,sans-serif" font-size="52" fill="#8b997e" transform="rotate(5 321 231)">404</text></svg>
+<svg
+  xmlns="http://www.w3.org/2000/svg"
+  viewBox="0 0 800 620"
+  role="img"
+  aria-labelledby="title desc"
+>
+  <title id="title">A small detour — 404 signpost</title>
+  <desc id="desc">
+    A warm brass post with a softly rounded clay 404 arrow and an ivory lower direction bar,
+    matching the live detour sign.
+  </desc>
+  <defs>
+    <linearGradient id="ivory" x1="0" y1="0" x2="1" y2="1">
+      <stop stop-color="#fffdf4" />
+      <stop offset="1" stop-color="#e4e0cf" />
+    </linearGradient>
+    <linearGradient id="sage" x1="0" y1="0" x2="1" y2="1">
+      <stop stop-color="#b8c5a6" />
+      <stop offset="1" stop-color="#8c9f7d" />
+    </linearGradient>
+    <linearGradient id="clay" x1="0" y1="0" x2="1" y2="1">
+      <stop stop-color="#d48b6b" />
+      <stop offset="1" stop-color="#aa573c" />
+    </linearGradient>
+    <linearGradient id="gold" x1="0" y1="0" x2="1" y2="1">
+      <stop stop-color="#eddbab" />
+      <stop offset=".5" stop-color="#d5b980" />
+      <stop offset="1" stop-color="#ad8e57" />
+    </linearGradient>
+    <linearGradient id="glass" x1="0" y1="0" x2="1" y2="1">
+      <stop stop-color="#e5eeea" stop-opacity=".72" />
+      <stop offset=".55" stop-color="#a8c1b7" stop-opacity=".4" />
+      <stop offset="1" stop-color="#d7e6de" stop-opacity=".65" />
+    </linearGradient>
+    <radialGradient id="skin" cx=".3" cy=".2" r=".9">
+      <stop stop-color="#d6a17c" />
+      <stop offset="1" stop-color="#a57152" />
+    </radialGradient>
+    <linearGradient id="fade" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="white" stop-opacity="0" />
+      <stop offset=".17" stop-color="white" />
+      <stop offset=".78" stop-color="white" />
+      <stop offset="1" stop-color="white" stop-opacity="0" />
+    </linearGradient>
+    <mask id="street-fade"><rect width="800" height="620" fill="url(#fade)" /></mask>
+  </defs>
+  <g stroke-linecap="round" stroke-linejoin="round">
+    <g transform="rotate(5 400 310)">
+      <rect x="393" y="174" width="15" height="330" rx="7" fill="#b09462" />
+      <rect x="388" y="166" width="13" height="334" rx="6" fill="url(#gold)" />
+      <path
+        d="M277.00 198.00Q277 188 287.00 188.00L468.00 188.00Q478 188 485.43 194.69L520.57 226.31Q528 233 520.57 239.69L485.43 271.31Q478 278 468.00 278.00L287.00 278.00Q277 278 277.00 268.00Z"
+        fill="#975138"
+      />
+      <path
+        d="M268.00 188.00Q268 178 278.00 178.00L459.00 178.00Q469 178 476.43 184.69L511.57 216.31Q519 223 511.57 229.69L476.43 261.31Q469 268 459.00 268.00L278.00 268.00Q268 268 268.00 258.00Z"
+        fill="url(#clay)"
+      />
+      <text
+        x="382"
+        y="239"
+        fill="#fffaf0"
+        font-family="Arial,sans-serif"
+        font-size="46"
+        text-anchor="middle"
+        letter-spacing="3"
+      >
+        404
+      </text>
+      <g transform="translate(311 321) rotate(-8 85 22)">
+        <rect x="0" y="8" width="182" height="45" rx="9" fill="#d9dfcf" />
+        <rect x="-5" y="0" width="182" height="45" rx="9" fill="url(#ivory)" />
+        <path
+          d="M27 22H139"
+          fill="none"
+          stroke="#b09462"
+          stroke-width="3"
+          stroke-linecap="round"
+          stroke-linejoin="round"
+        />
+      </g>
+    </g>
+  </g>
+</svg>

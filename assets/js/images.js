@@ -14,22 +14,31 @@
     image.loading = 'eager';
     // The browser chooses a srcset candidate. decode() prepares that candidate
     // off the presentation path; it doesn't swap sources as the user scrolls.
-    try { if (image.decode) await image.decode(); } catch { /* Native fallback remains. */ }
+    try {
+      if (image.decode) await image.decode();
+    } catch {
+      /* Native fallback remains. */
+    }
     working = false;
     if (queue.length) {
       if ('requestIdleCallback' in window) requestIdleCallback(prepareNext, { timeout: 250 });
       else setTimeout(prepareNext, 24);
     }
   }
-  const observer = new IntersectionObserver(entries => {
-    entries.forEach(entry => {
-      if (!entry.isIntersecting || seen.has(entry.target)) return;
-      seen.add(entry.target);
-      observer.unobserve(entry.target);
-      queue.push(entry.target);
-    });
-    prepareNext();
-  }, { rootMargin: '1400px 0px', threshold: 0 });
-  images.forEach(image => observer.observe(image));
-  document.addEventListener('visibilitychange', () => { if (!document.hidden) prepareNext(); });
+  const observer = new IntersectionObserver(
+    (entries) => {
+      entries.forEach((entry) => {
+        if (!entry.isIntersecting || seen.has(entry.target)) return;
+        seen.add(entry.target);
+        observer.unobserve(entry.target);
+        queue.push(entry.target);
+      });
+      prepareNext();
+    },
+    { rootMargin: '1400px 0px', threshold: 0 }
+  );
+  images.forEach((image) => observer.observe(image));
+  document.addEventListener('visibilitychange', () => {
+    if (!document.hidden) prepareNext();
+  });
 })();

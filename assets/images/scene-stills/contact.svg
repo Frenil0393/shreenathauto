@@ -1,1 +1,377 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 620"><title>Shreenath — contact illustration</title><defs><linearGradient id="ivory" x2=".8" y2="1"><stop stop-color="#fffdf4"/><stop offset="1" stop-color="#d8d6c8"/></linearGradient><linearGradient id="clay" x2="1" y2="1"><stop stop-color="#d49476"/><stop offset="1" stop-color="#a35a40"/></linearGradient><linearGradient id="glass" x2="1" y2="1"><stop stop-color="#b9d4ce"/><stop offset=".5" stop-color="#688d88"/><stop offset="1" stop-color="#c1d6cd"/></linearGradient><linearGradient id="gold" x2="1" y2="1"><stop stop-color="#eee0b6"/><stop offset=".5" stop-color="#c9a868"/><stop offset="1" stop-color="#a68a56"/></linearGradient></defs><ellipse cx="403" cy="482" rx="285" ry="85" fill="#bac1aa" opacity=".13"/><path d="m92 372 304-163 311 168-305 175Z" fill="#d9dece"/><path d="m92 372 310 169 305-164v11L402 564 92 384Z" fill="#b7c0ab"/><g transform="translate(223 365) scale(1.28)"><path d="m0 0 150 66 90-53-150-61Z" fill="#9fa992" opacity=".18"/><path d="m0-125 150 55v130L0 5Z" fill="url(#ivory)"/><path d="m150-70 85-50V10L150 60Z" fill="#b8bdab"/><path d="m-7-129 151 56 101-58-150-54Z" fill="#efeddd"/><path d="m-7-129 151 56v14L-7-114Z" fill="#8b987f"/><path d="m144-73 101-58v14L144-59Z" fill="#748367"/><path d="m12-96 124 46V37L12-9Z" fill="url(#glass)"/><path d="m171-59 48-29V-5l-48 29Z" fill="#809d93"/><path d="m18-86 109 40M55-80v86M96-64v86" stroke="#e7e8d8" stroke-width="4"/><path d="m23-85 29 11-27 34m45-29 36 13-33 39" fill="none" stroke="#fff" stroke-width="9" opacity=".24"/><path d="m16-25 116 44v18L16-7Z" fill="#b89b6f"/><path d="m16-25 20-12 115 44-19 12Z" fill="#e0c89d"/><g transform="matrix(1 .37 0 1 12 -109)"><text font-family="Arial,sans-serif" font-size="9" font-weight="700" letter-spacing=".8" fill="#354637">SHREENATH AUTO</text></g><path d="m70-74v25m40-9v24" stroke="#6a5d4d" stroke-width="9"/><circle cx="70" cy="-82" r="7" fill="#ab805c"/><circle cx="110" cy="-66" r="7" fill="#ad8061"/></g><g transform="translate(463 443) scale(1.12)"><ellipse cy="5" rx="12" ry="5" fill="#465948" opacity=".12"/><path d="M-5-22-6 0M5-22 6 0" stroke="#454d43" stroke-width="7" stroke-linecap="round"/><path d="M-8-46Q0-53 8-46L10-21H-10Z" fill="#bd8063"/><path d="M-10-44-14-27M10-44 15-30" stroke="#bd8063" stroke-width="5" stroke-linecap="round"/><circle cy="-60" r="9" fill="#a77956"/><path d="M-9-62Q-8-73 2-70 10-69 9-60L4-65Z" fill="#394039"/></g><g transform="translate(426 464) scale(1.02)"><ellipse cy="5" rx="12" ry="5" fill="#465948" opacity=".12"/><path d="M-5-22-6 0M5-22 6 0" stroke="#454d43" stroke-width="7" stroke-linecap="round"/><path d="M-8-46Q0-53 8-46L10-21H-10Z" fill="#80977b"/><path d="M-10-44-14-27M10-44 15-30" stroke="#80977b" stroke-width="5" stroke-linecap="round"/><circle cy="-60" r="9" fill="#a77956"/><path d="M-9-62Q-8-73 2-70 10-69 9-60L4-65Z" fill="#394039"/></g><g transform="translate(594 392) scale(1.1)"><ellipse cy="5" rx="23" ry="10" fill="#75836c" opacity=".16"/><path d="M0 0V-53" stroke="#8e795b" stroke-width="6"/><ellipse cy="-61" rx="27" ry="32" fill="#a9b798"/><ellipse cx="-8" cy="-70" rx="19" ry="25" fill="#c4cfae"/></g><g transform="translate(466 162)"><path d="M0 0h95q14 0 14 14v40q0 14-14 14H48L24 91V68H0q-14 0-14-14V14Q-14 0 0 0Z" fill="url(#ivory)" stroke="#c0c7b3" stroke-width="2"/><circle cx="17" cy="33" r="5" fill="#b67956"/><circle cx="47" cy="33" r="5" fill="#b67956"/><circle cx="77" cy="33" r="5" fill="#b67956"/></g></svg>
+<svg
+  xmlns="http://www.w3.org/2000/svg"
+  viewBox="0 0 800 620"
+  role="img"
+  aria-labelledby="title desc"
+>
+  <title id="title">Contact — a welcoming conversation</title>
+  <desc id="desc">
+    An airy reception lounge with an arched doorway, a brass-framed glass screen, an adviser at the
+    desk and a visitor beside a small conversation table.
+  </desc>
+  <defs>
+    <linearGradient id="ivory" x1="0" y1="0" x2="1" y2="1">
+      <stop stop-color="#fffdf4" />
+      <stop offset="1" stop-color="#e4e0cf" />
+    </linearGradient>
+    <linearGradient id="sage" x1="0" y1="0" x2="1" y2="1">
+      <stop stop-color="#b8c5a6" />
+      <stop offset="1" stop-color="#8c9f7d" />
+    </linearGradient>
+    <linearGradient id="clay" x1="0" y1="0" x2="1" y2="1">
+      <stop stop-color="#d48b6b" />
+      <stop offset="1" stop-color="#aa573c" />
+    </linearGradient>
+    <linearGradient id="gold" x1="0" y1="0" x2="1" y2="1">
+      <stop stop-color="#eddbab" />
+      <stop offset=".5" stop-color="#d5b980" />
+      <stop offset="1" stop-color="#ad8e57" />
+    </linearGradient>
+    <linearGradient id="glass" x1="0" y1="0" x2="1" y2="1">
+      <stop stop-color="#e5eeea" stop-opacity=".72" />
+      <stop offset=".55" stop-color="#a8c1b7" stop-opacity=".4" />
+      <stop offset="1" stop-color="#d7e6de" stop-opacity=".65" />
+    </linearGradient>
+    <radialGradient id="skin" cx=".3" cy=".2" r=".9">
+      <stop stop-color="#d6a17c" />
+      <stop offset="1" stop-color="#a57152" />
+    </radialGradient>
+    <linearGradient id="fade" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="white" stop-opacity="0" />
+      <stop offset=".17" stop-color="white" />
+      <stop offset=".78" stop-color="white" />
+      <stop offset="1" stop-color="white" stop-opacity="0" />
+    </linearGradient>
+    <mask id="street-fade"><rect width="800" height="620" fill="url(#fade)" /></mask>
+  </defs>
+  <g stroke-linecap="round" stroke-linejoin="round">
+    <g transform="translate(0 9)">
+      <path
+        d="M328.62 321.66Q351.7 312.045 374.78 321.66L664.62 442.43Q687.7 452.045 664.62 461.66L471.38 542.18Q448.3 551.795 425.22 542.18L135.38 421.41Q112.30000000000001 411.795 135.38 402.18Z"
+        fill="#c5cebb"
+      />
+    </g>
+    <path
+      d="M328.62 321.66Q351.7 312.045 374.78 321.66L664.62 442.43Q687.7 452.045 664.62 461.66L471.38 542.18Q448.3 551.795 425.22 542.18L135.38 421.41Q112.30000000000001 411.795 135.38 402.18Z"
+      fill="url(#ivory)"
+    />
+    <g transform="translate(370.6 347.35)">
+      <path d="M-37 0V-128C-37-180 37-180 37-128V0Z" fill="url(#ivory)" />
+      <path d="M-23 0V-125C-23-159 23-159 23-125V0Z" fill="#d2dccd" />
+      <path
+        d="M-36-1V-128C-36-180 36-180 36-128V-1"
+        fill="none"
+        stroke="#d5b980"
+        stroke-width="3"
+        stroke-linecap="round"
+        stroke-linejoin="round"
+      />
+    </g>
+    <g transform="translate(374.8 377.8)">
+      <rect x="6" y="-81" width="40" height="57" rx="13" fill="url(#sage)" />
+      <path
+        d="M14-28V-3M38-28V-4"
+        fill="none"
+        stroke="#b09462"
+        stroke-width="3"
+        stroke-linecap="round"
+        stroke-linejoin="round"
+      />
+      <rect x="-8" y="-37" width="53" height="13" rx="6" fill="#819477" />
+      <path
+        d="M2-38-14-27-20-6M19-38 2-23-4-3"
+        fill="none"
+        stroke="#354237"
+        stroke-width="9"
+        stroke-linecap="round"
+        stroke-linejoin="round"
+      />
+      <path
+        d="M-21-5-30-5M-4-2-13-2"
+        fill="none"
+        stroke="#56604d"
+        stroke-width="7"
+        stroke-linecap="round"
+        stroke-linejoin="round"
+      />
+      <path d="M1-87Q-10-86-9-71L-6-41Q8-36 25-41L25-70Q26-83 14-87Z" fill="url(#sage)" />
+      <rect x="0" y="-97" width="12" height="16" rx="4" fill="#bc8b68" />
+      <circle cx="6" cy="-109" r="15" fill="url(#skin)" />
+      <path d="M-8-109Q-13-127 7-126Q23-126 22-110L16-116Q7-109-8-109Z" fill="#354237" />
+      <circle cx="-7" cy="-107" r="3" fill="#bc8b68" />
+      <path d="M-7-107L-12-101-6-101Z" fill="#bc8b68" />
+      <path
+        d="M-3-76-13-60-33-66"
+        fill="none"
+        stroke="url(#sage)"
+        stroke-width="10"
+        stroke-linecap="round"
+        stroke-linejoin="round"
+      />
+      <circle cx="-36" cy="-66" r="5" fill="#bc8b68" />
+      <path
+        d="M22-75 28-53 12-46"
+        fill="none"
+        stroke="url(#sage)"
+        stroke-width="9"
+        stroke-linecap="round"
+        stroke-linejoin="round"
+      />
+      <circle cx="10" cy="-46" r="4" fill="#bc8b68" />
+    </g>
+    <path
+      d="M497.54 217.59Q498.28000000000003 217.27999999999997 498.28 218.08L498.28 397.65Q498.28000000000003 398.45 497.54 398.76L495.66 399.54Q494.92 399.85 494.92 399.05L494.92 219.48Q494.92 218.68 495.66 218.37Z"
+      fill="#b09462"
+    />
+    <path
+      d="M491.56 218.08Q491.56 217.27999999999997 492.30 217.59L494.18 218.37Q494.92 218.68 494.92 219.48L494.92 399.05Q494.92 399.85 494.18 399.54L492.30 398.76Q491.56 398.45 491.56 397.65Z"
+      fill="#d5b980"
+    />
+    <path
+      d="M494.18 216.19Q494.92 215.88 495.66 216.19L497.54 216.97Q498.28000000000003 217.27999999999997 497.54 217.59L495.66 218.37Q494.92 218.68 494.18 218.37L492.30 217.59Q491.56 217.27999999999997 492.30 216.97Z"
+      fill="#d5b980"
+    />
+    <g transform="translate(321.88 322.39)">
+      <rect x="-22" y="-42" width="44" height="31" rx="5" fill="#354237" />
+      <rect x="-18" y="-38" width="36" height="23" rx="3" fill="#b8cdc4" />
+      <path
+        d="M0-11V2"
+        fill="none"
+        stroke="#56604d"
+        stroke-width="4"
+        stroke-linecap="round"
+        stroke-linejoin="round"
+      />
+      <path
+        d="M-12 3H12"
+        fill="none"
+        stroke="#56604d"
+        stroke-width="4"
+        stroke-linecap="round"
+        stroke-linejoin="round"
+      />
+      <path
+        d="M-13-30H9M-13-24H0"
+        fill="none"
+        stroke="#fffaf0"
+        stroke-width="2"
+        stroke-linecap="round"
+        stroke-linejoin="round"
+      />
+    </g>
+    <path
+      d="M395.98 340.81Q403.36 337.73 403.36 345.73L403.36 402.00Q403.36 410 395.98 413.08L356.98 429.32Q349.6 432.4 349.60 424.40L349.60 368.13Q349.6 360.13 356.98 357.05Z"
+      fill="#d9dfcf"
+    />
+    <path
+      d="M250.48 326.83Q250.48000000000002 318.83000000000004 257.86 321.91L342.22 357.05Q349.6 360.13 349.60 368.13L349.60 424.40Q349.6 432.4 342.22 429.32L257.86 394.18Q250.48000000000002 391.1 250.48 383.10Z"
+      fill="#f3efdf"
+    />
+    <path
+      d="M296.86 299.51Q304.24 296.43 311.62 299.51L395.98 334.65Q403.36 337.73 395.98 340.81L356.98 357.05Q349.6 360.13 342.22 357.05L257.86 321.91Q250.48000000000002 318.83000000000004 257.86 315.75Z"
+      fill="#bc9970"
+    />
+    <g transform="translate(179.92 403.7) scale(0.7)">
+      <path
+        d="M0-18V-87M0-48-18-69M0-60 17-87"
+        fill="none"
+        stroke="#b09462"
+        stroke-width="3"
+        stroke-linecap="round"
+        stroke-linejoin="round"
+      />
+      <ellipse cx="-17" cy="-74" rx="12" ry="24" transform="rotate(-30 -17 -74)" fill="#a5b695" />
+      <ellipse cx="17" cy="-92" rx="12" ry="25" transform="rotate(25 17 -92)" fill="#8d9f7c" />
+      <ellipse cx="-2" cy="-102" rx="12" ry="23" fill="#c2cfb0" />
+      <path d="M-17-24Q0-32 17-24L13-3Q0 6-13-3Z" fill="url(#ivory)" />
+      <ellipse cy="-24" rx="17" ry="6" fill="#d9dfcf" />
+    </g>
+    <path
+      d="M355.14 333.56Q355.144 333.56 355.14 333.56L373.62 341.26Q373.624 341.26 373.62 341.26L372.62 341.68Q372.616 341.68 372.62 341.68L354.14 333.98Q354.13599999999997 333.97999999999996 354.14 333.98Z"
+      fill="#819477"
+    />
+    <path
+      d="M348.00 336.53Q348.004 336.53499999999997 348.00 336.53L366.48 344.23Q366.484 344.23499999999996 366.48 344.23L365.48 344.65Q365.476 344.655 365.48 344.65L347.00 336.95Q346.996 336.955 347.00 336.95Z"
+      fill="#819477"
+    />
+    <path
+      d="M387.00 340.53Q387.4 340.36 387.40 340.80L387.40 341.90Q387.4 342.34000000000003 387.00 342.51L351.68 357.22Q351.28 357.39 351.28 356.95L351.28 355.85Q351.28 355.40999999999997 351.68 355.24Z"
+      fill="#f3efdf"
+    />
+    <path
+      d="M323.56 344.30Q323.56 343.86 323.96 344.03L350.88 355.24Q351.28 355.40999999999997 351.28 355.85L351.28 356.95Q351.28 357.39 350.88 357.22L323.96 346.01Q323.56 345.84000000000003 323.56 345.40Z"
+      fill="#d9dfcf"
+    />
+    <path
+      d="M357.83 329.58Q359.68 328.81 361.53 329.58L385.55 339.59Q387.4 340.36 385.55 341.13L353.13 354.64Q351.28 355.40999999999997 349.43 354.64L325.41 344.63Q323.56 343.86 325.41 343.09Z"
+      fill="#fffaf0"
+    />
+    <path
+      d="M340.86 339.51Q340.86400000000003 339.51 340.86 339.51L359.34 347.21Q359.344 347.21 359.34 347.21L358.34 347.63Q358.336 347.63 358.34 347.63L339.86 339.93Q339.856 339.93 339.86 339.93Z"
+      fill="#819477"
+    />
+    <path
+      d="M629.12 271.61Q629.95 271.2675 629.95 272.17L629.95 451.54Q629.95 452.4375 629.12 452.78L627.00 453.67Q626.17 454.0125 626.17 453.11L626.17 273.74Q626.17 272.8425 627.00 272.50Z"
+      fill="#d5b980"
+    />
+    <path
+      d="M495.97 223.59Q495.97 218.59249999999997 500.59 220.52L621.55 270.92Q626.17 272.8425 626.17 277.84L626.17 449.01Q626.17 454.0125 621.55 452.09L500.59 401.69Q495.97 399.7625 495.97 394.76Z"
+      fill="url(#glass)"
+    />
+    <path
+      d="M498.92 217.36Q499.75 217.01749999999998 500.58 217.36L629.12 270.92Q629.95 271.2675 629.12 271.61L627.00 272.50Q626.17 272.8425 625.34 272.50L496.80 218.94Q495.97 218.59249999999997 496.80 218.25Z"
+      fill="#d5b980"
+    />
+    <path
+      d="M631.10 273.24Q631.84 272.93 631.84 273.73L631.84 453.30Q631.84 454.1 631.10 454.41L629.22 455.19Q628.48 455.5 628.48 454.70L628.48 275.13Q628.48 274.33 629.22 274.02Z"
+      fill="#b09462"
+    />
+    <path
+      d="M625.12 273.73Q625.12 272.93 625.86 273.24L627.74 274.02Q628.48 274.33 628.48 275.13L628.48 454.70Q628.48 455.5 627.74 455.19L625.86 454.41Q625.12 454.1 625.12 453.30Z"
+      fill="#d5b980"
+    />
+    <path
+      d="M627.74 271.84Q628.48 271.53 629.22 271.84L631.10 272.62Q631.84 272.93 631.10 273.24L629.22 274.02Q628.48 274.33 627.74 274.02L625.86 273.24Q625.12 272.93 625.86 272.62Z"
+      fill="#d5b980"
+    />
+    <path
+      d="M348.42 383.77Q348.424 383.77 348.42 383.77L366.90 391.47Q366.904 391.47 366.90 391.47L365.90 391.89Q365.896 391.89 365.90 391.89L347.42 384.19Q347.416 384.19 347.42 384.19Z"
+      fill="#819477"
+    />
+    <path
+      d="M341.28 386.75Q341.284 386.745 341.28 386.75L359.76 394.44Q359.764 394.445 359.76 394.44L358.76 394.87Q358.756 394.865 358.76 394.87L340.28 387.17Q340.276 387.165 340.28 387.17Z"
+      fill="#819477"
+    />
+    <path
+      d="M380.28 390.74Q380.68 390.57 380.68 391.01L380.68 392.11Q380.68 392.54999999999995 380.28 392.72L344.96 407.43Q344.56 407.59999999999997 344.56 407.16L344.56 406.06Q344.56 405.62 344.96 405.45Z"
+      fill="#f3efdf"
+    />
+    <path
+      d="M316.84 394.51Q316.84 394.07 317.24 394.24L344.16 405.45Q344.56 405.62 344.56 406.06L344.56 407.16Q344.56 407.59999999999997 344.16 407.43L317.24 396.22Q316.84 396.04999999999995 316.84 395.61Z"
+      fill="#d9dfcf"
+    />
+    <path
+      d="M351.11 379.79Q352.96 379.02000000000004 354.81 379.79L378.83 389.80Q380.68 390.57 378.83 391.34L346.41 404.85Q344.56 405.62 342.71 404.85L318.69 394.84Q316.84 394.07 318.69 393.30Z"
+      fill="#fffaf0"
+    />
+    <path
+      d="M334.14 389.72Q334.144 389.72 334.14 389.72L352.62 397.42Q352.624 397.42 352.62 397.42L351.62 397.84Q351.616 397.84000000000003 351.62 397.84L333.14 390.14Q333.13599999999997 390.14 333.14 390.14Z"
+      fill="#819477"
+    />
+    <path
+      d="M373.79 408.88Q375.64 408.11 375.64 410.11L375.64 461.55Q375.64 463.55 373.79 464.32L369.09 466.28Q367.24 467.05 367.24 465.05L367.24 413.61Q367.24 411.61 369.09 410.84Z"
+      fill="#b09462"
+    />
+    <path
+      d="M358.84 410.11Q358.84 408.11 360.69 408.88L365.39 410.84Q367.24 411.61 367.24 413.61L367.24 465.05Q367.24 467.05 365.39 466.28L360.69 464.32Q358.84 463.55 358.84 461.55Z"
+      fill="#d5b980"
+    />
+    <path
+      d="M365.39 405.38Q367.24 404.61 369.09 405.38L373.79 407.34Q375.64 408.11 373.79 408.88L369.09 410.84Q367.24 411.61 365.39 410.84L360.69 408.88Q358.84 408.11 360.69 407.34Z"
+      fill="#d5b980"
+    />
+    <path
+      d="M431.15 401.91Q432.76 401.24 432.76 402.98L432.76 407.42Q432.76 409.16 431.15 409.83L371.37 434.74Q369.76 435.41 369.76 433.67L369.76 429.23Q369.76 427.49 371.37 426.82Z"
+      fill="#819477"
+    />
+    <path
+      d="M301.72 400.88Q301.72 399.14 303.33 399.81L368.15 426.82Q369.76 427.49 369.76 429.23L369.76 433.67Q369.76 435.41 368.15 434.74L303.33 407.73Q301.72 407.06 301.72 405.32Z"
+      fill="#d9dfcf"
+    />
+    <path
+      d="M350.86 378.66Q364.72 372.89 378.58 378.67L418.90 395.46Q432.76 401.24 418.90 407.01L383.62 421.72Q369.76 427.49 355.90 421.71L315.58 404.92Q301.72 399.14 315.58 393.37Z"
+      fill="#f3efdf"
+    />
+    <path
+      d="M407.21 387.65Q409.24 386.8 409.24 389.00L409.24 399.45Q409.24 401.65 407.21 402.50L402.03 404.65Q400 405.5 400.00 403.30L400.00 392.85Q400 390.65000000000003 402.03 389.80Z"
+      fill="#d9dfcf"
+    />
+    <path
+      d="M390.76 389.00Q390.76 386.8 392.79 387.65L397.97 389.80Q400 390.65000000000003 400.00 392.85L400.00 403.30Q400 405.5 397.97 404.65L392.79 402.50Q390.76 401.65 390.76 399.45Z"
+      fill="#f3efdf"
+    />
+    <path
+      d="M397.97 383.80Q400 382.95 402.03 383.80L407.21 385.95Q409.24 386.8 407.21 387.65L402.03 389.80Q400 390.65000000000003 397.97 389.80L392.79 387.65Q390.76 386.8 392.79 385.95Z"
+      fill="#f3efdf"
+    />
+    <g transform="translate(580.6 469.15) scale(0.8)">
+      <path
+        d="M0-18V-87M0-48-18-69M0-60 17-87"
+        fill="none"
+        stroke="#b09462"
+        stroke-width="3"
+        stroke-linecap="round"
+        stroke-linejoin="round"
+      />
+      <ellipse cx="-17" cy="-74" rx="12" ry="24" transform="rotate(-30 -17 -74)" fill="#a5b695" />
+      <ellipse cx="17" cy="-92" rx="12" ry="25" transform="rotate(25 17 -92)" fill="#8d9f7c" />
+      <ellipse cx="-2" cy="-102" rx="12" ry="23" fill="#c2cfb0" />
+      <path d="M-17-24Q0-32 17-24L13-3Q0 6-13-3Z" fill="url(#ivory)" />
+      <ellipse cy="-24" rx="17" ry="6" fill="#d9dfcf" />
+    </g>
+    <g transform="translate(415.12 476.5)">
+      <rect x="6" y="-81" width="40" height="57" rx="13" fill="url(#sage)" />
+      <path
+        d="M14-28V-3M38-28V-4"
+        fill="none"
+        stroke="#b09462"
+        stroke-width="3"
+        stroke-linecap="round"
+        stroke-linejoin="round"
+      />
+      <rect x="-8" y="-37" width="53" height="13" rx="6" fill="#819477" />
+      <path
+        d="M2-38-14-27-20-6M19-38 2-23-4-3"
+        fill="none"
+        stroke="#354237"
+        stroke-width="9"
+        stroke-linecap="round"
+        stroke-linejoin="round"
+      />
+      <path
+        d="M-21-5-30-5M-4-2-13-2"
+        fill="none"
+        stroke="#56604d"
+        stroke-width="7"
+        stroke-linecap="round"
+        stroke-linejoin="round"
+      />
+      <path d="M1-87Q-10-86-9-71L-6-41Q8-36 25-41L25-70Q26-83 14-87Z" fill="url(#clay)" />
+      <rect x="0" y="-97" width="12" height="16" rx="4" fill="#bc8b68" />
+      <circle cx="6" cy="-109" r="15" fill="url(#skin)" />
+      <path d="M-8-109Q-13-127 7-126Q23-126 22-110L16-116Q7-109-8-109Z" fill="#354237" />
+      <circle cx="-7" cy="-107" r="3" fill="#bc8b68" />
+      <path d="M-7-107L-12-101-6-101Z" fill="#bc8b68" />
+      <path
+        d="M-3-76-13-60-33-66"
+        fill="none"
+        stroke="url(#clay)"
+        stroke-width="10"
+        stroke-linecap="round"
+        stroke-linejoin="round"
+      />
+      <circle cx="-36" cy="-66" r="5" fill="#bc8b68" />
+      <path
+        d="M22-75 28-53 12-46"
+        fill="none"
+        stroke="url(#clay)"
+        stroke-width="9"
+        stroke-linecap="round"
+        stroke-linejoin="round"
+      />
+      <circle cx="10" cy="-46" r="4" fill="#bc8b68" />
+    </g>
+    <path
+      d="M465.50 476.34Q468.46000000000004 475.105 468.46 478.31L468.46 507.54Q468.46000000000004 510.745 465.50 511.98L457.98 515.11Q455.02 516.345 455.02 513.14L455.02 483.91Q455.02 480.70500000000004 457.98 479.47Z"
+      fill="#975138"
+    />
+    <path
+      d="M425.62 475.45Q425.62 468.455 432.08 471.15L448.56 478.01Q455.02 480.70500000000004 455.02 487.71L455.02 509.35Q455.02 516.345 448.56 513.65L432.08 506.79Q425.62 504.09499999999997 425.62 497.09Z"
+      fill="#bd6848"
+    />
+    <path
+      d="M436.10 464.09Q439.06 462.855 442.02 464.09L465.50 473.87Q468.46000000000004 475.105 465.50 476.34L457.98 479.47Q455.02 480.70500000000004 452.06 479.47L428.58 469.69Q425.62 468.455 428.58 467.22Z"
+      fill="#bd6848"
+    />
+  </g>
+</svg>

@@ -1,0 +1,277 @@
+/* Service enquiries and document preparation, scoped to these controls. */
+.service-tools-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  margin-top: 20px;
+}
+.service-tool-button,
+.service-tool-download {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  min-height: 44px;
+  padding: 11px 17px;
+  border: 1px solid var(--line);
+  border-radius: 100px;
+  background: transparent;
+  color: var(--ink);
+  font: 500 12px/1.5 var(--font);
+  text-align: center;
+  transition:
+    background 0.2s,
+    border-color 0.2s,
+    color 0.2s;
+}
+.service-tool-button:hover,
+.service-tool-download:hover {
+  border-color: var(--accent);
+  background: var(--accent-light);
+}
+.service-tool-button[data-service-action='whatsapp'] {
+  border-color: var(--accent);
+  color: var(--accent);
+}
+.service-tools-dialog {
+  position: fixed;
+  inset: 0;
+  width: min(620px, calc(100% - 32px));
+  max-height: calc(100vh - 32px);
+  max-height: calc(100dvh - 32px);
+  margin: auto;
+  padding: 0;
+  border: 1px solid var(--line);
+  border-radius: 22px;
+  background: var(--paper);
+  color: var(--ink);
+  box-shadow: 0 24px 100px #0004;
+  overflow: auto;
+  overscroll-behavior: contain;
+  z-index: 140;
+  scrollbar-gutter: stable;
+}
+.service-tools-dialog::backdrop {
+  background: #11171099;
+}
+.service-tools-backdrop {
+  position: fixed;
+  inset: 0;
+  z-index: 139;
+  background: #11171099;
+}
+html.service-tools-open {
+  overflow: hidden;
+}
+.service-tools-dialog-head {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 20px;
+  padding: 28px 28px 18px;
+  border-bottom: 1px solid var(--line);
+}
+.service-tools-dialog-head h2 {
+  font-size: clamp(25px, 5vw, 33px);
+  line-height: 1.2;
+  letter-spacing: -0.04em;
+  margin-top: 10px;
+}
+.service-tools-dialog-head .micro {
+  color: var(--accent);
+  font-size: 10px;
+}
+.service-tools-dialog-head .dialog-close {
+  flex-shrink: 0;
+}
+.service-tools-body {
+  padding: 22px 28px 28px;
+}
+.service-tools-tabs {
+  display: flex;
+  gap: 8px;
+  margin-bottom: 22px;
+}
+.service-tools-tabs button {
+  flex: 1;
+  min-height: 44px;
+  padding: 10px 12px;
+  border: 1px solid var(--line);
+  border-radius: 100px;
+  background: transparent;
+  color: var(--muted);
+  font: 500 12px/1.6 var(--font);
+}
+.service-tools-tabs button[aria-pressed='true'] {
+  background: var(--accent-light);
+  border-color: var(--accent);
+  color: var(--accent);
+}
+.service-tools-field {
+  display: block;
+  margin-bottom: 18px;
+}
+.service-tools-field > span {
+  display: block;
+  font-size: 12px;
+  margin-bottom: 7px;
+  color: var(--muted);
+}
+.service-tools-field select {
+  display: block;
+  width: 100%;
+  min-height: 48px;
+  border: 1px solid var(--line);
+  border-radius: 10px;
+  background: var(--white);
+  color: var(--ink);
+  font: 400 16px/1.5 var(--font);
+  padding: 10px 36px 10px 12px;
+}
+.service-tools-copy {
+  font-size: 13px;
+  line-height: 1.75;
+  margin-bottom: 16px;
+}
+.service-tools-preview {
+  padding: 18px;
+  border: 1px solid var(--line);
+  border-radius: 12px;
+  background: var(--white);
+  white-space: pre-line;
+  font-size: 14px;
+  line-height: 1.8;
+  color: var(--ink);
+  margin: 12px 0 18px;
+}
+.service-tools-list {
+  list-style: none;
+  padding: 0;
+  margin: 0 0 18px;
+}
+.service-tools-list li {
+  border-bottom: 1px solid var(--line);
+}
+.service-tools-list label {
+  display: flex;
+  align-items: flex-start;
+  gap: 12px;
+  padding: 14px 0;
+  font-size: 14px;
+  line-height: 1.75;
+  cursor: pointer;
+}
+.service-tools-list input {
+  width: 20px;
+  height: 20px;
+  flex: 0 0 20px;
+  margin: 3px 0 0;
+  accent-color: var(--accent);
+}
+.service-tools-list input:checked + span {
+  color: var(--muted);
+}
+.service-tools-progress {
+  font-size: 12px;
+  color: var(--accent);
+  margin-bottom: 6px;
+}
+.service-tools-note {
+  padding: 14px 16px;
+  border-left: 2px solid var(--accent);
+  background: var(--accent-light);
+  font-size: 12px;
+  line-height: 1.8;
+  margin-bottom: 18px;
+}
+.service-tools-downloads {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 9px;
+  margin: 10px 0 20px;
+}
+.service-tools-sources {
+  font-size: 11px;
+  line-height: 1.8;
+  margin-bottom: 20px;
+  color: var(--muted);
+}
+.service-tools-sources a {
+  display: block;
+  color: var(--accent);
+  text-decoration: underline;
+  text-underline-offset: 3px;
+  overflow-wrap: anywhere;
+}
+.service-tools-footer {
+  border-top: 1px solid var(--line);
+  padding-top: 20px;
+}
+.service-tools-whatsapp {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 12px;
+  min-height: 48px;
+  padding: 12px 20px;
+  border: 1px solid var(--accent);
+  border-radius: 100px;
+  background: var(--accent);
+  color: var(--accent-ink);
+  font: 500 14px/1.6 var(--font);
+  text-align: center;
+  transition: box-shadow 0.2s;
+}
+.service-tools-whatsapp:hover {
+  box-shadow: inset 0 0 0 999px #00000012;
+}
+.service-tools-footer p {
+  font-size: 11px;
+  line-height: 1.7;
+  margin-top: 10px;
+  text-align: center;
+}
+.service-tools-status {
+  font-size: 12px;
+  margin-top: 12px;
+  color: var(--accent);
+}
+html:lang(gu) .service-tools-dialog-head h2 {
+  font-size: 27px;
+  line-height: 1.5;
+  letter-spacing: 0;
+}
+.service-tool-download:lang(gu) {
+  font-family: 'Hind Vadodara', sans-serif;
+}
+@media (max-width: 480px) {
+  .service-tools-actions {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+  }
+  .service-tool-button {
+    padding: 10px 12px;
+    font-size: 12px;
+  }
+  .service-tools-dialog {
+    width: calc(100% - 20px);
+    max-height: calc(100dvh - 20px);
+    border-radius: 18px;
+  }
+  .service-tools-dialog-head {
+    padding: 22px 20px 16px;
+  }
+  .service-tools-body {
+    padding: 18px 20px 22px;
+  }
+  .service-tools-downloads > * {
+    flex: 1;
+  }
+}
+@media (prefers-reduced-motion: reduce) {
+  .service-tool-button,
+  .service-tool-download,
+  .service-tools-whatsapp {
+    transition: none;
+  }
+}

@@ -1,1 +1,92 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 620"><title>Shreenath — accessibility illustration</title><defs><linearGradient id="ivory" x2=".8" y2="1"><stop stop-color="#fffdf4"/><stop offset="1" stop-color="#d8d6c8"/></linearGradient><linearGradient id="clay" x2="1" y2="1"><stop stop-color="#d49476"/><stop offset="1" stop-color="#a35a40"/></linearGradient><linearGradient id="glass" x2="1" y2="1"><stop stop-color="#b9d4ce"/><stop offset=".5" stop-color="#688d88"/><stop offset="1" stop-color="#c1d6cd"/></linearGradient><linearGradient id="gold" x2="1" y2="1"><stop stop-color="#eee0b6"/><stop offset=".5" stop-color="#c9a868"/><stop offset="1" stop-color="#a68a56"/></linearGradient></defs><ellipse cx="400" cy="492" rx="202" ry="49" fill="#b5bea7" opacity=".15"/><path d="M225 446a175 39 0 0 0 350 0v19a175 39 0 0 1-350 0Z" fill="#c1c9b4"/><ellipse cx="400" cy="446" rx="175" ry="39" fill="#e4e7d8"/><ellipse cx="410" cy="265" rx="131" ry="150" fill="#9fac91"/><ellipse cx="388" cy="255" rx="131" ry="150" fill="url(#ivory)"/><circle cx="388" cy="175" r="21" fill="#a3b191"/><path d="m320 223 67 21 69-21M387 246v55m0-8-48 64m48-64 48 64" stroke="#a3b191" stroke-width="20" stroke-linecap="round" fill="none"/></svg>
+<svg
+  xmlns="http://www.w3.org/2000/svg"
+  viewBox="0 0 800 620"
+  role="img"
+  aria-labelledby="title desc"
+>
+  <title id="title">Accessibility — a continuous ramp</title>
+  <desc id="desc">
+    A smooth sage ramp with a continuous brass handrail and a universal-access figure inside a brass
+    ring, matching the live accessibility sculpture.
+  </desc>
+  <defs>
+    <linearGradient id="ivory" x1="0" y1="0" x2="1" y2="1">
+      <stop stop-color="#fffdf4" />
+      <stop offset="1" stop-color="#e4e0cf" />
+    </linearGradient>
+    <linearGradient id="sage" x1="0" y1="0" x2="1" y2="1">
+      <stop stop-color="#b8c5a6" />
+      <stop offset="1" stop-color="#8c9f7d" />
+    </linearGradient>
+    <linearGradient id="clay" x1="0" y1="0" x2="1" y2="1">
+      <stop stop-color="#d48b6b" />
+      <stop offset="1" stop-color="#aa573c" />
+    </linearGradient>
+    <linearGradient id="gold" x1="0" y1="0" x2="1" y2="1">
+      <stop stop-color="#eddbab" />
+      <stop offset=".5" stop-color="#d5b980" />
+      <stop offset="1" stop-color="#ad8e57" />
+    </linearGradient>
+    <linearGradient id="glass" x1="0" y1="0" x2="1" y2="1">
+      <stop stop-color="#e5eeea" stop-opacity=".72" />
+      <stop offset=".55" stop-color="#a8c1b7" stop-opacity=".4" />
+      <stop offset="1" stop-color="#d7e6de" stop-opacity=".65" />
+    </linearGradient>
+    <radialGradient id="skin" cx=".3" cy=".2" r=".9">
+      <stop stop-color="#d6a17c" />
+      <stop offset="1" stop-color="#a57152" />
+    </radialGradient>
+    <linearGradient id="fade" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="white" stop-opacity="0" />
+      <stop offset=".17" stop-color="white" />
+      <stop offset=".78" stop-color="white" />
+      <stop offset="1" stop-color="white" stop-opacity="0" />
+    </linearGradient>
+    <mask id="street-fade"><rect width="800" height="620" fill="url(#fade)" /></mask>
+  </defs>
+  <g stroke-linecap="round" stroke-linejoin="round">
+    <path
+      d="M197 436C311 436 354 344 468 344H541V378H470C360 378 318 470 197 470Z"
+      fill="#819477"
+    />
+    <path
+      d="M164 416C284 416 332 324 446 324H508L541 344H468C354 344 311 436 197 436Z"
+      fill="url(#sage)"
+    />
+    <path
+      d="M197 436C311 436 354 344 468 344H536"
+      fill="none"
+      stroke="#d4dfc8"
+      stroke-width="2"
+      stroke-linecap="round"
+      stroke-linejoin="round"
+    />
+    <path
+      d="M189 405V341M275 383V319M363 329V265M462 313V249"
+      fill="none"
+      stroke="#b09462"
+      stroke-width="5"
+      stroke-linecap="round"
+      stroke-linejoin="round"
+    />
+    <path
+      d="M189 341C291 341 354 249 466 249H507"
+      fill="none"
+      stroke="url(#gold)"
+      stroke-width="7"
+      stroke-linecap="round"
+      stroke-linejoin="round"
+    />
+    <circle cx="554" cy="228" r="79" fill="none" stroke="#b59a64" stroke-width="7" />
+    <circle cx="550" cy="222" r="79" fill="none" stroke="url(#gold)" stroke-width="7" />
+    <circle cx="550" cy="185" r="14" fill="url(#clay)" />
+    <path
+      d="M550 211V251M509 211Q550 226 591 211M550 248 527 280M550 248 573 280"
+      fill="none"
+      stroke="#bd6848"
+      stroke-width="13"
+      stroke-linecap="round"
+      stroke-linejoin="round"
+    />
+  </g>
+</svg>

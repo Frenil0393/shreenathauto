@@ -1,1 +1,174 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 620"><title>Shreenath — cancellations illustration</title><defs><linearGradient id="ivory" x2=".8" y2="1"><stop stop-color="#fffdf4"/><stop offset="1" stop-color="#d8d6c8"/></linearGradient><linearGradient id="clay" x2="1" y2="1"><stop stop-color="#d49476"/><stop offset="1" stop-color="#a35a40"/></linearGradient><linearGradient id="glass" x2="1" y2="1"><stop stop-color="#b9d4ce"/><stop offset=".5" stop-color="#688d88"/><stop offset="1" stop-color="#c1d6cd"/></linearGradient><linearGradient id="gold" x2="1" y2="1"><stop stop-color="#eee0b6"/><stop offset=".5" stop-color="#c9a868"/><stop offset="1" stop-color="#a68a56"/></linearGradient></defs><ellipse cx="400" cy="492" rx="202" ry="49" fill="#b5bea7" opacity=".15"/><path d="M225 446a175 39 0 0 0 350 0v19a175 39 0 0 1-350 0Z" fill="#c1c9b4"/><ellipse cx="400" cy="446" rx="175" ry="39" fill="#e4e7d8"/><g transform="translate(283 124) rotate(-9 115 145)"><rect x="10" y="13" width="218" height="287" rx="20" fill="#bfc5b2"/><rect width="218" height="287" rx="20" fill="url(#ivory)" stroke="#d8dbc9" stroke-width="2"/><path d="M36 55h105M36 93h146M36 121h130M36 149h144" stroke="#a7b39b" stroke-width="8" stroke-linecap="round"/></g><path d="M463 231a85 85 0 1 1-46-62" fill="none" stroke="#c39868" stroke-width="21"/><path d="m400 133 40 44-57 12Z" fill="url(#gold)"/></svg>
+<svg
+  xmlns="http://www.w3.org/2000/svg"
+  viewBox="0 0 800 620"
+  role="img"
+  aria-labelledby="title desc"
+>
+  <title id="title">Cancellations — a cash return</title>
+  <desc id="desc">
+    An open clay envelope holding three symbolic rupee notes, with a small ivory receipt. The same
+    cash-return concept as the live sculpture.
+  </desc>
+  <defs>
+    <linearGradient id="ivory" x1="0" y1="0" x2="1" y2="1">
+      <stop stop-color="#fffdf4" />
+      <stop offset="1" stop-color="#e4e0cf" />
+    </linearGradient>
+    <linearGradient id="sage" x1="0" y1="0" x2="1" y2="1">
+      <stop stop-color="#b8c5a6" />
+      <stop offset="1" stop-color="#8c9f7d" />
+    </linearGradient>
+    <linearGradient id="clay" x1="0" y1="0" x2="1" y2="1">
+      <stop stop-color="#d48b6b" />
+      <stop offset="1" stop-color="#aa573c" />
+    </linearGradient>
+    <linearGradient id="gold" x1="0" y1="0" x2="1" y2="1">
+      <stop stop-color="#eddbab" />
+      <stop offset=".5" stop-color="#d5b980" />
+      <stop offset="1" stop-color="#ad8e57" />
+    </linearGradient>
+    <linearGradient id="glass" x1="0" y1="0" x2="1" y2="1">
+      <stop stop-color="#e5eeea" stop-opacity=".72" />
+      <stop offset=".55" stop-color="#a8c1b7" stop-opacity=".4" />
+      <stop offset="1" stop-color="#d7e6de" stop-opacity=".65" />
+    </linearGradient>
+    <radialGradient id="skin" cx=".3" cy=".2" r=".9">
+      <stop stop-color="#d6a17c" />
+      <stop offset="1" stop-color="#a57152" />
+    </radialGradient>
+    <linearGradient id="fade" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="white" stop-opacity="0" />
+      <stop offset=".17" stop-color="white" />
+      <stop offset=".78" stop-color="white" />
+      <stop offset="1" stop-color="white" stop-opacity="0" />
+    </linearGradient>
+    <mask id="street-fade"><rect width="800" height="620" fill="url(#fade)" /></mask>
+  </defs>
+  <g stroke-linecap="round" stroke-linejoin="round">
+    <g transform="rotate(-6 400 310)">
+      <path d="M249 271L388 169Q400 162 412 169L551 271Z" fill="#975138" />
+      <path d="M249 271L388 178Q400 171 412 178L551 271Z" fill="url(#clay)" />
+      <g transform="translate(277 230) rotate(-12 105 58)">
+        <rect x="0" y="0" width="213" height="116" rx="9" fill="#819477" />
+        <rect x="-5" y="-5" width="213" height="116" rx="9" fill="url(#sage)" />
+        <rect
+          x="7"
+          y="6"
+          width="187"
+          height="90"
+          rx="5"
+          fill="none"
+          stroke="#dae2c9"
+          stroke-width="2"
+        />
+        <g transform="translate(78 22) scale(0.9)">
+          <path
+            d="M0 0H35M0 12H35M8 0C34 0 33 27 4 27L32 52"
+            fill="none"
+            stroke="#56604d"
+            stroke-width="5"
+            stroke-linecap="round"
+            stroke-linejoin="round"
+          />
+        </g>
+        <path
+          d="M22 29V64M175 29V64"
+          fill="none"
+          stroke="#819477"
+          stroke-width="5"
+          stroke-linecap="round"
+          stroke-linejoin="round"
+        />
+      </g>
+      <g transform="translate(294 228) rotate(9 105 58)">
+        <rect x="0" y="0" width="211" height="116" rx="9" fill="#d9dfcf" />
+        <rect x="-5" y="-5" width="211" height="116" rx="9" fill="url(#ivory)" />
+        <rect
+          x="7"
+          y="6"
+          width="185"
+          height="90"
+          rx="5"
+          fill="none"
+          stroke="#c9d1bb"
+          stroke-width="2"
+        />
+        <g transform="translate(80 22) scale(0.85)">
+          <path
+            d="M0 0H35M0 12H35M8 0C34 0 33 27 4 27L32 52"
+            fill="none"
+            stroke="#56604d"
+            stroke-width="5"
+            stroke-linecap="round"
+            stroke-linejoin="round"
+          />
+        </g>
+        <path
+          d="M22 29V64M173 29V64"
+          fill="none"
+          stroke="#a5b695"
+          stroke-width="5"
+          stroke-linecap="round"
+          stroke-linejoin="round"
+        />
+      </g>
+      <g transform="translate(287 256)">
+        <rect x="0" y="0" width="213" height="116" rx="9" fill="url(#sage)" />
+        <rect
+          x="11"
+          y="11"
+          width="191"
+          height="94"
+          rx="5"
+          fill="none"
+          stroke="#d5dec5"
+          stroke-width="2"
+        />
+        <g transform="translate(87 30) scale(0.8)">
+          <path
+            d="M0 0H35M0 12H35M8 0C34 0 33 27 4 27L32 52"
+            fill="none"
+            stroke="#56604d"
+            stroke-width="5"
+            stroke-linecap="round"
+            stroke-linejoin="round"
+          />
+        </g>
+        <path
+          d="M28 37V69M186 37V69"
+          fill="none"
+          stroke="#819477"
+          stroke-width="4"
+          stroke-linecap="round"
+          stroke-linejoin="round"
+        />
+      </g>
+      <rect x="247" y="296" width="310" height="165" rx="16" fill="#975138" />
+      <rect x="239" y="288" width="310" height="165" rx="16" fill="url(#clay)" />
+      <path
+        d="M244 295L384 388Q394 395 405 388L544 295"
+        fill="none"
+        stroke="#e4ad88"
+        stroke-width="2"
+      />
+      <path
+        d="M247 441L348 365M539 441 440 365"
+        fill="none"
+        stroke="#d5b980"
+        stroke-width="2"
+        stroke-linecap="round"
+        stroke-linejoin="round"
+      />
+      <circle cx="395" cy="388" r="17" fill="url(#gold)" />
+      <g transform="translate(533 356) rotate(10)">
+        <rect x="0" y="0" width="91" height="132" rx="8" fill="#d9dfcf" />
+        <rect x="-4" y="-5" width="91" height="132" rx="8" fill="url(#ivory)" />
+        <rect x="10" y="22" width="58" height="3" rx="1.5" fill="#819477" />
+        <rect x="10" y="39" width="58" height="3" rx="1.5" fill="#819477" />
+        <rect x="10" y="56" width="58" height="3" rx="1.5" fill="#819477" />
+        <rect x="10" y="73" width="36" height="3" rx="1.5" fill="#819477" />
+        <rect x="10" y="105" width="25" height="3" rx="1.5" fill="#bd6848" />
+      </g>
+    </g>
+  </g>
+</svg>

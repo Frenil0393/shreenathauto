@@ -1,5 +1,27 @@
 # Shreenath Auto Advisers — Project Guide
 
+## SVG label placement, source formatting and cleanup — 11 October 2026 (r30)
+
+Placed about, services and street labels on dedicated rounded sign panels aligned to their scene surfaces. Redrew the contact adviser and visitor with seated poses, bent legs, chair support and arms oriented toward the conversation area. Formatted HTML, CSS, JavaScript, JSON, SVG, Markdown and deployment YAML without redesigning the website. Updated README with the current feature set, root-domain InfinityFree publishing instructions and manual review steps. Removed the unused older responsive photo folder, unused PNG logo and empty video folder; retained a recovery copy outside the project. Kept referenced social-preview office images, future-use portraits and repository/deployment files. Updated SVG URL and page release versions. No website/browser tests were run.
+
+## Scene fallback illustrations — 11 October 2026 (r29)
+
+Rebuilt all eleven SVGs in assets/images/scene-stills with rounded geometry, restrained depth and the live scenes’ ivory, sage, clay and brass palette. The service consultation atelier, two-branch story and contact lounge now match their live concepts; the street includes the glass office, market shops, people, vehicles, officer and fading roads. Policy sculptures match their corresponding padlock, documents, cash envelope, switches, folio, ramp and detour sign. These lightweight, self-contained vectors remain fallback artwork; live Three.js scenes and page layouts are unchanged. Image URLs and release markers are versioned to refresh cached artwork. Inspected an illustration contact sheet; no website/browser tests were run.
+
+## Scene fallback illustrations — 11 October 2026 (r29)
+
+Rebuilt all eleven SVGs in assets/images/scene-stills with rounded geometry, restrained depth and the live scenes’ ivory, sage, clay and brass palette. The service consultation atelier, two-branch story and contact lounge now match their live concepts; the street includes the glass office, market shops, people, vehicles, officer and fading roads. Policy sculptures match their corresponding padlock, documents, cash envelope, switches, folio, ramp and detour sign. These lightweight, self-contained vectors remain fallback artwork; live Three.js scenes and page layouts are unchanged. Image URLs and release markers are versioned to refresh cached artwork. Inspected an illustration contact sheet; no website/browser tests were run.
+
+## Popup scrollbars — 11 October 2026 (r28)
+
+The shared scrollbar stylesheet hides native scrollbar rails and reserved gutters in all dialogs, nested dialog content, the cookie banner and expanded mobile navigation. Overflow remains scrollable by touch, wheel and keyboard. Covers appearance, language, cookie preferences, installation and service enquiry/checklist dialogs without changing their layouts or animations. Updated stylesheet URLs and release markers across pages. No browser tests were run.
+
+## Service WhatsApp enquiries and document checklists — 11 October 2026 (r27)
+
+The Services page now has WhatsApp enquiry and Document checklist controls beside each of its 12 services. The shared dialog asks visitors to choose Jamkandorana or Dhoraji before opening a prepared WhatsApp message; the dedicated WhatsApp destination exists only in service-tools.js and the outgoing link, not in visible contact details. Existing phone numbers and contact forms are unchanged. No message is sent automatically.
+
+Checklists have English and Gujarati text, selectable subtypes for driving licences, duplicate documents and address changes, and downloadable UTF-8 .txt copies in both languages. Downloads include the selected branch, ticked items, a review date and reference links. These are preparation guides, with conditional and service-specific requirements labelled; confirm the final Gujarat RTO/insurer list with the customer. Edit checklist content in assets/js/service-checklists.js. Selection state stays in memory and no personal documents are collected or uploaded. Opening/closing animations respect reduced motion; the dialog supports keyboard navigation and theme colours. No new backend or hosting setup is required. Upload services.html, the three new service assets, release.json and pages with updated release markers. No browser tests or live WhatsApp sends were performed.
+
 ## 404 scene and Gujarati font loading — 11 October 2026 (r26)
 
 Restored the missing scene-support bootstrap on the 404 page before the transition and object scripts. Removed its CSP-blocked base element and made the remaining fallback artwork, stylesheet and favicon URLs root-relative so nested missing URLs resolve them correctly. Gujarati Hind Vadodara now loads from an early head stylesheet using display=swap instead of an optional CSS import; late font downloads can replace fallback text without a manual refresh. Failed font-load promises can be retried, including when connectivity returns. Updated shared font asset references and release markers. No browser tests were run.
@@ -57,7 +79,6 @@ The favicon uses a dedicated solid car-and-hands symbol for small sizes, with a 
 - Web3Forms keys and endpoint are preserved. `enquiry.js` handles pending, success and error states independently of decorative scripts. It prevents duplicate sends, preserves failed enquiries, locks fields during sending and uses a 30-second timeout with an honest unconfirmed-delivery message. Success requires a 2xx response and `success: true`. English/Gujarati messages, reduced-motion styles and live announcements are included. The analytics event is now `enquiry_sent`, contains only service/branch, and continues to require analytics consent.
 - Privacy, terms and accessibility descriptions now match this implementation. They describe form delivery and fallbacks; this update is not a legal compliance certification.
 - Before deployment, the owner should inspect all generated portraits for likeness, upload all changed files (including assets, manifest, release.json and sw.js), and send one real enquiry on each configured hosted domain to confirm receipt. No real enquiry was sent during development and no physical Windows 7 device was available.
-
 
 Updated 8 October 2026. This is the project's single owner document. It consolidates the former README, publishing instructions, launch checklist, readiness report, security notes and icon-generation notes.
 
@@ -261,7 +282,6 @@ This is a hosting restriction. Editing HTML, schema, robots.txt or `.htaccess` c
 
 Google Analytics remains disabled until you enter your real measurement ID in `assets/js/config.js` and a visitor consents. Search Console verification does not enable analytics. See `LAUNCH-CHECKLIST.md` for the existing analytics and business-policy handoff.
 
-
 ---
 
 <a id="launch-checklist-md"></a>
@@ -288,6 +308,7 @@ For the current icon, SEO and installable-site update, start with **INFINITYFREE
 The website can launch without Analytics. Leave `analyticsId` blank to keep it off.
 
 If wanted:
+
 1. Create or choose your Google Analytics 4 property and web stream for the production domain.
 2. Put its actual **G-…** measurement ID into `assets/js/config.js`.
 3. In the stream settings, disable automatic form interaction, site-search and outbound-click measurement before enabling the ID. Use the site's deliberately limited custom events so automatic collection does not capture unexpected URLs or form metadata.
@@ -333,7 +354,6 @@ These are your next steps; they have **not** been executed by Codex.
 - Keep a backup and a contact route for reporting problems.
 - Consider Awwwards submission only after your visual, performance, accessibility and content review. No award nomination or submission has been made.
 
-
 ---
 
 <a id="publish-readiness-md"></a>
@@ -372,23 +392,22 @@ InfinityFree warns that its mandatory browser-security challenge can interfere w
 
 The public pages include focused meta-keyword lists at the owner's request. Google does not use this tag for ranking. Relevant titles, descriptions and structured page summaries have also been maintained or updated. There is no hidden keyword block or repeated list in the visible design. Keep service/location terms accurate; do not add services or locations the business does not serve. The 404 and offline pages intentionally remain noindex and have no marketing keyword list.
 
-| Page | Relevant topics |
-| --- | --- |
-| / | Shreenath Auto Advisers, RTO consultant Jamkandorana, RTO services Dhoraji, vehicle registration, RC transfer, driving licence assistance, vehicle NOC, Gujarat RTO consultancy |
-| /services | RTO services Gujarat, vehicle registration, ownership transfer, driving licence renewal, duplicate RC, vehicle fitness certificate, NOC, hypothecation removal, RC address change, vehicle insurance, commercial permits, fancy number registration |
-| /about | Shreenath Auto Advisers story, Anupam Auto Advisers, Chetan Patel, Jasmin Patel, Divyesh Patel, RTO advisers Jamkandorana, Dhoraji |
-| /contact | Shreenath Auto Advisers contact, Jamkandorana office, Dhoraji office, RTO adviser phone number, RTO consultancy enquiry |
-| /privacy | Shreenath Auto Advisers privacy policy, enquiry data, browser preferences, analytics consent, offline storage |
-| /terms | Shreenath Auto Advisers terms, website terms, RTO consultancy conditions, independent RTO adviser |
-| /cancellations | Shreenath Auto Advisers refunds, cancellation policy, cash refund, partial refund, RTO consultancy cancellation |
-| /cookies | Shreenath Auto Advisers cookie policy, analytics consent, cookie preferences, browser storage, offline app storage |
-| /copyright | Shreenath Auto Advisers copyright, original website content, brand assets, third-party licences |
-| /accessibility | Shreenath Auto Advisers accessibility, keyboard navigation, reduced motion, accessible contact, website assistance |
+| Page           | Relevant topics                                                                                                                                                                                                                                     |
+| -------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| /              | Shreenath Auto Advisers, RTO consultant Jamkandorana, RTO services Dhoraji, vehicle registration, RC transfer, driving licence assistance, vehicle NOC, Gujarat RTO consultancy                                                                     |
+| /services      | RTO services Gujarat, vehicle registration, ownership transfer, driving licence renewal, duplicate RC, vehicle fitness certificate, NOC, hypothecation removal, RC address change, vehicle insurance, commercial permits, fancy number registration |
+| /about         | Shreenath Auto Advisers story, Anupam Auto Advisers, Chetan Patel, Jasmin Patel, Divyesh Patel, RTO advisers Jamkandorana, Dhoraji                                                                                                                  |
+| /contact       | Shreenath Auto Advisers contact, Jamkandorana office, Dhoraji office, RTO adviser phone number, RTO consultancy enquiry                                                                                                                             |
+| /privacy       | Shreenath Auto Advisers privacy policy, enquiry data, browser preferences, analytics consent, offline storage                                                                                                                                       |
+| /terms         | Shreenath Auto Advisers terms, website terms, RTO consultancy conditions, independent RTO adviser                                                                                                                                                   |
+| /cancellations | Shreenath Auto Advisers refunds, cancellation policy, cash refund, partial refund, RTO consultancy cancellation                                                                                                                                     |
+| /cookies       | Shreenath Auto Advisers cookie policy, analytics consent, cookie preferences, browser storage, offline app storage                                                                                                                                  |
+| /copyright     | Shreenath Auto Advisers copyright, original website content, brand assets, third-party licences                                                                                                                                                     |
+| /accessibility | Shreenath Auto Advisers accessibility, keyboard navigation, reduced motion, accessible contact, website assistance                                                                                                                                  |
 
 Search visibility and a number-one ranking cannot be guaranteed. Installation prompts and icon refresh timing are controlled partly by browsers and operating systems.
 
 References: [Google on meta keywords](https://developers.google.com/search/docs/crawling-indexing/special-tags), [Google favicon requirements](https://developers.google.com/search/docs/appearance/favicon-in-search), [InfinityFree PWA limitation](https://forum.infinityfree.com/t/how-do-i-get-pwa-to-work/69018/3).
-
 
 ---
 
@@ -401,6 +420,7 @@ References: [Google on meta keywords](https://developers.google.com/search/docs/
 A static HTML/CSS/JavaScript site for Shreenath Auto Advisers. No build step or package install is required. The unused previous website and obsolete assets have been archived outside this project. Current original photos, the logo, maintenance tools and launch notes are retained.
 
 ### Pages
+
 - Home: `index.html`
 - Services: `services.html` (all twelve original services)
 - Our story: `about.html`
@@ -417,6 +437,7 @@ A static HTML/CSS/JavaScript site for Shreenath Auto Advisers. No build step or 
 Public navigation uses `/`, `/services`, `/about`, `/contact` and extensionless policy routes. Apache maps these to the HTML files and redirects old `.html` addresses. Deploy into the domain root on HTTPS. Main-page file previews use `assets/js/urls.js` to restore local HTML links; installation is available only on a served secure origin.
 
 ### Implementation
+
 - `assets/css/site.css`: original core layout and light palette.
 - `assets/css/appearance.css`: dark palette, colour controls and 3D loading presentation.
 - `assets/css/hero-immersive.css`: homepage-only full-width street scene, theme-aware gradient blending, readable copy layer and mobile framing. The canvas has a 2.4-million-pixel rendering budget.
@@ -456,10 +477,13 @@ Every root page shares a first-visit language chooser and a language control bes
 Navigation, service content, FAQs, policies, controls, image descriptions, contact email drafts and road signs follow the language choice. Prepared email drafts are cleared when language changes so visitors can prepare them again in the selected language. Reduced-motion preferences disable the language fades. English HTML remains the no-JavaScript fallback and the canonical indexed content; this update does not create separate Gujarati URLs or hreflang routes. No translation API receives visitor content.
 
 ### Enquiries
+
 The original Web3Forms access key was a placeholder. The current form prepares an email draft for the visitor to review and send, with a copy alternative. It does not claim to submit the enquiry directly. Names, phone numbers, email addresses, and messages are not sent in our custom analytics events. Prepared message contents are not placed in link attributes.
 
 ### Owner-confirmed policy
+
 Legal name: **Shreenath Auto Advisers**.
+
 - No work processed: **100% refund**.
 - Some work completed: **partial refund based on the work completed**.
 - Refund method: **cash**.
@@ -467,6 +491,7 @@ Legal name: **Shreenath Auto Advisers**.
 No unconfirmed percentage, refund deadline, business registration number, or statutory certification is invented.
 
 ### Analytics and cookies
+
 No real Google Analytics ID was present in the project. `analyticsId` remains blank, so no Google tag loads. After configuration, visitors must explicitly opt in. Advertising consent remains denied. Global Privacy Control and Do Not Track override an analytics opt-in. Cookie settings are available in every footer; the preference is stored under `shreenath_consent_v1` in local storage and is valid for 180 days. Changing the ID prompts a fresh choice.
 
 Withdrawal sets Google's disable flag and denied consent, blocks this site's measurement calls, and clears accessible first-party GA cookies. Previously transmitted data is not erased by this action. Hosting security cookies, server logs, Google Fonts, and CDN requests are separate from optional analytics.
@@ -479,6 +504,7 @@ Read `INFINITYFREE-LAUNCH.md` for this update’s upload instructions, appearanc
 **No browser, automated, visual, mobile-device, performance, or accessibility tests were run, as explicitly requested.** Responsive and motion code is implemented, but rendering and runtime behaviour remain unverified. The website has not been deployed or submitted to Awwwards.
 
 ### Reference documentation
+
 - [Three.js renderer](https://threejs.org/docs/pages/WebGLRenderer.html)
 - [Lenis](https://github.com/darkroomengineering/lenis)
 - [Google basic consent implementation](https://developers.google.com/tag-platform/security/guides/consent?consentmode=basic)
@@ -493,8 +519,6 @@ The shared header uses centred pill navigation on desktop and the existing seque
 The home scene includes a glazed Shreenath office and its bilingual sign. The inspection officer raises an open hand before the car stops, holds it during inspection, lowers it, and then releases the car. Existing pause, reduced motion and offscreen suspension continue to apply.
 
 See `SECURITY.md` for the resource policy, private-file and method restrictions, copying deterrents and hosting responsibilities. No tests were run for this update.
-
-
 
 ---
 
@@ -523,7 +547,6 @@ The allowlist preserves the existing Google Fonts and optional consent-gated Ana
 
 References: [MDN CSP guide](https://developer.mozilla.org/en-US/docs/Web/HTTP/Guides/CSP), [frame-ancestors limitations](https://developer.mozilla.org/en-US/docs/Web/HTTP/Reference/Headers/Content-Security-Policy/frame-ancestors), [Google's Hind Vadodara font sources and licence](https://github.com/google/fonts/tree/main/ofl/hindvadodara).
 
-
 ---
 
 <a id="tools-icon-generation-md"></a>
@@ -540,7 +563,4 @@ Original master prompt:
 
 Use case: logo-brand. Asset type: production favicon and installed website app icon for Shreenath Auto Advisers, an independent Indian RTO consultancy. Reference image: the supplied existing brand mark showing the FRONT of a car held protectively by two hands. Redesign ONLY the small-size icon version, retain that recognizable car-in-two-hands idea and symmetry. Produce one flat, optically clean square icon, no presentation mockup. Full-bleed solid warm ivory background #f5f3ed and a very dark forest charcoal #252820 emblem. A confident simplified car silhouette with a clearly open large windscreen, two bold headlights, and two broad cupped hand silhouettes beneath/beside it. Very thick uniform forms and large negative spaces, no fine finger lines, no grille details, no wrist buttons, no thin outlines, no letters or words. Essential emblem centered within approximately the middle 72% of the canvas so it stays inside a circular OS mask, but use that area boldly with minimal wasted internal whitespace. Crisp professionally drawn vector-like contours, balanced symmetry and contemporary premium restraint. 1024 x 1024 or larger square. Opaque background all the way to the edges, no rounded outer square (the OS handles the mask), no gradients, no shadow, no border, no texture, no 3D, no watermark. Must remain distinct at favicon sizes.
 
-
 ---
-
-

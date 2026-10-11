@@ -1,1 +1,87 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 620"><title>Shreenath — cookies illustration</title><defs><linearGradient id="ivory" x2=".8" y2="1"><stop stop-color="#fffdf4"/><stop offset="1" stop-color="#d8d6c8"/></linearGradient><linearGradient id="clay" x2="1" y2="1"><stop stop-color="#d49476"/><stop offset="1" stop-color="#a35a40"/></linearGradient><linearGradient id="glass" x2="1" y2="1"><stop stop-color="#b9d4ce"/><stop offset=".5" stop-color="#688d88"/><stop offset="1" stop-color="#c1d6cd"/></linearGradient><linearGradient id="gold" x2="1" y2="1"><stop stop-color="#eee0b6"/><stop offset=".5" stop-color="#c9a868"/><stop offset="1" stop-color="#a68a56"/></linearGradient></defs><ellipse cx="400" cy="492" rx="202" ry="49" fill="#b5bea7" opacity=".15"/><path d="M225 446a175 39 0 0 0 350 0v19a175 39 0 0 1-350 0Z" fill="#c1c9b4"/><ellipse cx="400" cy="446" rx="175" ry="39" fill="#e4e7d8"/><ellipse cx="401" cy="299" rx="124" ry="130" fill="#a8794e"/><path d="M491 169a130 130 0 1 0 47 96q-37-1-36-35-40-10-11-61Z" fill="url(#gold)" stroke="#d7bd8d" stroke-width="3"/><g fill="#947451"><circle cx="352" cy="192" r="11"/><circle cx="305" cy="269" r="10"/><circle cx="377" cy="312" r="14"/><circle cx="449" cy="361" r="9"/><circle cx="451" cy="274" r="11"/><circle cx="340" cy="372" r="7"/></g><circle cx="535" cy="189" r="14" fill="#d3b981"/><circle cx="564" cy="241" r="8" fill="#bd9c61"/></svg>
+<svg
+  xmlns="http://www.w3.org/2000/svg"
+  viewBox="0 0 800 620"
+  role="img"
+  aria-labelledby="title desc"
+>
+  <title id="title">Cookies — preference switches</title>
+  <desc id="desc">
+    Three rounded sage and clay preference switches with ivory knobs. A static illustration; these
+    are not consent controls.
+  </desc>
+  <defs>
+    <linearGradient id="ivory" x1="0" y1="0" x2="1" y2="1">
+      <stop stop-color="#fffdf4" />
+      <stop offset="1" stop-color="#e4e0cf" />
+    </linearGradient>
+    <linearGradient id="sage" x1="0" y1="0" x2="1" y2="1">
+      <stop stop-color="#b8c5a6" />
+      <stop offset="1" stop-color="#8c9f7d" />
+    </linearGradient>
+    <linearGradient id="clay" x1="0" y1="0" x2="1" y2="1">
+      <stop stop-color="#d48b6b" />
+      <stop offset="1" stop-color="#aa573c" />
+    </linearGradient>
+    <linearGradient id="gold" x1="0" y1="0" x2="1" y2="1">
+      <stop stop-color="#eddbab" />
+      <stop offset=".5" stop-color="#d5b980" />
+      <stop offset="1" stop-color="#ad8e57" />
+    </linearGradient>
+    <linearGradient id="glass" x1="0" y1="0" x2="1" y2="1">
+      <stop stop-color="#e5eeea" stop-opacity=".72" />
+      <stop offset=".55" stop-color="#a8c1b7" stop-opacity=".4" />
+      <stop offset="1" stop-color="#d7e6de" stop-opacity=".65" />
+    </linearGradient>
+    <radialGradient id="skin" cx=".3" cy=".2" r=".9">
+      <stop stop-color="#d6a17c" />
+      <stop offset="1" stop-color="#a57152" />
+    </radialGradient>
+    <linearGradient id="fade" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="white" stop-opacity="0" />
+      <stop offset=".17" stop-color="white" />
+      <stop offset=".78" stop-color="white" />
+      <stop offset="1" stop-color="white" stop-opacity="0" />
+    </linearGradient>
+    <mask id="street-fade"><rect width="800" height="620" fill="url(#fade)" /></mask>
+  </defs>
+  <g stroke-linecap="round" stroke-linejoin="round">
+    <g transform="rotate(-13 400 310)">
+      <rect x="249" y="176" width="311" height="77" rx="38" fill="#819477" />
+      <rect x="240" y="168" width="311" height="77" rx="38" fill="url(#sage)" />
+      <circle cx="284" cy="208" r="29" fill="#819477" />
+      <circle cx="281" cy="203" r="29" fill="url(#ivory)" />
+      <path
+        d="M492 205H516"
+        fill="none"
+        stroke="#d7e0c9"
+        stroke-width="3"
+        stroke-linecap="round"
+        stroke-linejoin="round"
+      />
+      <rect x="249" y="283" width="311" height="77" rx="38" fill="#975138" />
+      <rect x="240" y="275" width="311" height="77" rx="38" fill="url(#clay)" />
+      <circle cx="508" cy="315" r="29" fill="#975138" />
+      <circle cx="505" cy="310" r="29" fill="url(#ivory)" />
+      <path
+        d="M270 312H294"
+        fill="none"
+        stroke="#e9b79a"
+        stroke-width="3"
+        stroke-linecap="round"
+        stroke-linejoin="round"
+      />
+      <rect x="249" y="390" width="311" height="77" rx="38" fill="#819477" />
+      <rect x="240" y="382" width="311" height="77" rx="38" fill="url(#sage)" />
+      <circle cx="284" cy="422" r="29" fill="#819477" />
+      <circle cx="281" cy="417" r="29" fill="url(#ivory)" />
+      <path
+        d="M492 419H516"
+        fill="none"
+        stroke="#d7e0c9"
+        stroke-width="3"
+        stroke-linecap="round"
+        stroke-linejoin="round"
+      />
+    </g>
+  </g>
+</svg>
