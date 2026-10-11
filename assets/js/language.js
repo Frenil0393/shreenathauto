@@ -139,7 +139,10 @@
       document.fonts.load('400 16px "Hind Vadodara"', 'ગુજરાતી'),
       document.fonts.load('500 40px "Hind Vadodara"', 'ગુજરાતી'),
       document.fonts.load('600 40px "Hind Vadodara"', 'ગુજરાતી')
-    ]).catch(() => {}).then(() => dispatchEvent(new Event('shreenath:language-fonts')));
+    ]).then(() => dispatchEvent(new Event('shreenath:language-fonts'))).catch(() => {
+      // A failed first request must not permanently cache a failed load.
+      fontPromise = null;
+    });
   }
   const fontWait = () => Promise.race([fonts(), new Promise(resolve => setTimeout(resolve, 1200))]);
   async function animate(element, frames, duration) {
@@ -275,5 +278,6 @@
   // for another 1.2 seconds on every navigation; explicit language changes still wait.
   clearTimeout(window.SHREENATH_LANGUAGE_REVEAL); delete root.dataset.languagePending;
   if (current === 'gu') fonts();
+  addEventListener('online', () => { if (current === 'gu') fonts(); });
   if (!chosen) open();
 })();

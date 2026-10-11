@@ -1,4 +1,5 @@
-@import url('https://fonts.googleapis.com/css2?family=Hind+Vadodara:wght@400;500;600&display=optional');
+/* Hind Vadodara is loaded by an early head stylesheet with display=swap.
+   Late downloads must replace the fallback without requiring a refresh. */
 
 /* An additive type layer: retain the existing palette, artwork and English layout. */
 html[data-language-pending='true'] body{visibility:hidden}

@@ -1,5 +1,9 @@
 # Shreenath Auto Advisers — Project Guide
 
+## 404 scene and Gujarati font loading — 11 October 2026 (r26)
+
+Restored the missing scene-support bootstrap on the 404 page before the transition and object scripts. Removed its CSP-blocked base element and made the remaining fallback artwork, stylesheet and favicon URLs root-relative so nested missing URLs resolve them correctly. Gujarati Hind Vadodara now loads from an early head stylesheet using display=swap instead of an optional CSS import; late font downloads can replace fallback text without a manual refresh. Failed font-load promises can be retried, including when connectivity returns. Updated shared font asset references and release markers. No browser tests were run.
+
 ## Solid grille, hollow centre — 10 October 2026 (r25)
 
 Corrected the favicon per the owner’s clarification: both grille/air-vent openings are now solid, and the round central badge is hollow again. Regenerated all browser and shortcut icon exports and advanced their cache versions. The windshield, headlights, hands and rounded background are preserved.
