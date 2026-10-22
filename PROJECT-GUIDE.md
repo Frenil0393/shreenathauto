@@ -123,7 +123,7 @@ These sections preserve the source notes and their original dates/statuses for r
 
 ## InfinityFree publishing and discovery
 
-Updated 8 October 2026. Files have been edited locally and static publication checks have passed. Nothing has been deployed, and browser/hosting behaviour has not been verified. The production domain remains **https://shreenathauto.me**. Read **PUBLISH-READINESS.md** for the current check results and remaining launch steps.
+Updated 8 October 2026. Files have been edited locally and static publication checks have passed. Nothing has been deployed, and browser/hosting behaviour has not been verified. The production domain remains **https://shreenathauto.live**. Read **PUBLISH-READINESS.md** for the current check results and remaining launch steps.
 
 ### Publish this update
 
@@ -186,7 +186,7 @@ Upload the new scene-builder file as well as the updated HTML and other assets. 
 
 #### Live object motion, analytics and disclosures — r6
 
-The owner supplied GA4 measurement ID `G-XS41JPJ318`, now configured in `assets/js/config.js`. The integration loads the tag only after affirmative optional-analytics consent on HTTP(S). A local `file://` preview remains disabled and now explains that distinction. Browser Global Privacy Control or Do Not Track also keeps analytics off. Configuration does not verify ownership, Google-side settings, receipt of events or deployment; those have not been tested. This supersedes earlier instructions describing an empty analytics ID.
+The owner supplied GA4 measurement ID `G-K0WZE7SSCS`, now configured in `assets/js/config.js`. The integration loads the tag only after affirmative optional-analytics consent on HTTP(S). A local `file://` preview remains disabled and now explains that distinction. Browser Global Privacy Control or Do Not Track also keeps analytics off. Configuration does not verify ownership, Google-side settings, receipt of events or deployment; those have not been tested. This supersedes earlier instructions describing an empty analytics ID.
 
 The other pages retain their distinctive 3D sculptures and now animate their individual components, with an English/Gujarati Pause/Resume control, a 30 fps rendering cap, offscreen suspension and reduced-motion support. These are animated sculptures, not complete new architectural environments. Disclosure animations measure the actual final box instead of adding partial child heights; this includes the cookie row's padding and prevents its final height snap. Stable scrollbar space prevents a width change inside the cookie dialog. No tests were run.
 
@@ -232,7 +232,7 @@ For the mobile header stability and rebuilt office update, upload every root HTM
 
 Latest header/office refinement: upload all root HTML pages, `assets/css/header.css` and `assets/js/scene.js` together. The HTML references use `20261007-office` to refresh cached assets. Mobile settings now share equal card dimensions; desktop links are centred between equal-width side columns without a navigation capsule. The office is a glass-front architectural cutaway with two seated advisers and three customers, and the inspection officer's raised arm stops at 90 degrees. This refinement has not been tested or deployed.
 
-1. Back up the live files. In InfinityFree, open the document root assigned to **shreenathauto.me**. This is an `htdocs` directory; additional domains may have their own `domain/htdocs` folder. Use the directory shown for this domain in your account.
+1. Back up the live files. In InfinityFree, open the document root assigned to **shreenathauto.live**. This is an `htdocs` directory; additional domains may have their own `domain/htdocs` folder. Use the directory shown for this domain in your account.
 2. Upload the root HTML pages, the complete `assets` folder, `manifest.json`, `robots.txt`, `sitemap.xml` and `.htaccess`. Upload the **contents** of this project into that document root, rather than nesting the project folder inside it. There is no Node server, build command or database requirement.
 3. Include `assets/css/appearance.css`, `assets/js/appearance-init.js`, `assets/js/appearance.js`, `assets/css/scrollbar.css`, `assets/js/scrollbar.js` and the new `assets/css/hero-immersive.css`, plus the updated `main.js`, `scene.js` and `objects.js`. Upload the updated `index.html` for the full-width gradient-blended hero. All HTML pages must be uploaded together to make appearance and scroll controls consistent.
 4. Keep the existing HTTPS certificate active for the canonical domain. The included Apache rules handle HTTPS, clean page URLs and the custom 404 page. Keep `.htaccess` visible in your upload client. If an old hosting default `index.php` exists, back it up and remove it only after confirming it is unused; this project enters through `index.html`.
@@ -256,7 +256,7 @@ The project now includes a location-specific home search title, snippet/image pr
 
 After upload, complete these steps in your own accounts:
 
-1. **Google Search Console:** use the existing verified property for `https://shreenathauto.me/`, or verify ownership if it is not yours. Submit `https://shreenathauto.me/sitemap.xml`. Use URL Inspection for the home, services and contact URLs; request indexing after your launch checks. The verification meta tag is already present, but a tag does not establish which account owns the property.
+1. **Google Search Console:** use the existing verified property for `https://shreenathauto.live/`, or verify ownership if it is not yours. Submit `https://shreenathauto.live/sitemap.xml`. Use URL Inspection for the home, services and contact URLs; request indexing after your launch checks. The verification meta tag is already present, but a tag does not establish which account owns the property.
 2. **Bing Webmaster Tools:** add the site, or import your verified Search Console property. Submit the same sitemap. Bing supplies discovery for its search experiences; submission is not an indexing guarantee. [Bing sitemap guidance](https://www2.bing.com/webmasters/help/sitemaps-3b5cf6ed).
 3. **Google Business Profile:** claim and verify eligible real branches. Keep the actual name, phone, address, hours and website consistent with the site. Add current real photos and collect genuine customer reviews. Follow [Google’s business representation guidance](https://support.google.com/business/answer/3038177?hl=en).
 4. Keep service information accurate and helpful. Add material updates when a real process or service changes; do not add invented reviews, awards, guarantees or keyword-filled location pages. Maintain sitemap URLs when adding or retiring pages. Use `lastmod` only for genuine dated updates if you add it later.
@@ -320,7 +320,7 @@ The Google Search Console verification key from your old site is already retaine
 ### 3. Publish the new files
 
 - Back up the current production site before replacing it.
-- Upload every new root HTML page, the `assets` directory, `manifest.json`, `robots.txt`, `sitemap.xml`, and `.htaccess` to the web root for **shreenathauto.me**.
+- Upload every new root HTML page, the `assets` directory, `manifest.json`, `robots.txt`, `sitemap.xml`, and `.htaccess` to the web root for **shreenathauto.live**.
 - Do not upload the old `shreenath-auto V9` reference folder, the `tools` source folder, development notes, or this checklist. Include `assets/images/responsive`, which now provides the displayed photographs and logo.
 - Keep HTTPS enabled. The included `.htaccess` uses Apache; if your hosting is not Apache, configure the equivalent clean routes and 404 handling there.
 - Routes: `/`, `/about`, `/services`, `/contact`, `/privacy`, `/terms`, `/cancellations`, `/cookies`, `/copyright`, `/accessibility`.
@@ -348,7 +348,7 @@ These are your next steps; they have **not** been executed by Codex.
 
 ### 5. Finish the public launch
 
-- Submit **https://shreenathauto.me/sitemap.xml** in Google Search Console and inspect the main URLs.
+- Submit **https://shreenathauto.live/sitemap.xml** in Google Search Console and inspect the main URLs.
 - Submit the same sitemap in Bing Webmaster Tools. Confirm crawler access on the actual InfinityFree account; its mandatory browser security layer may restrict some automated/AI visitors despite permissive robots.txt rules.
 - Check the site's search titles and link-sharing preview once the new files are public.
 - Keep a backup and a contact route for reporting problems.
@@ -375,7 +375,7 @@ Browser favicons and regular app icons use rounded transparent corners. Apple an
 - 1,344 local checks across 12 HTML pages passed with no reported errors: local resources, cross-page fragment links, unique IDs, main headings, metadata, canonical URLs, structured JSON, manifest resources, icon dimensions and circular-mask safe areas, sitemap targets, release markers, and offline-worker references.
 - All 23 current JavaScript files, including the service worker, passed `node --check`. This is a syntax check, not proof of runtime behaviour.
 - The generated icon was visually inspected as a master and at 16, 32, 48, 96, 180 and 192 pixels. Website header/footer brand artwork remains original. Production icon exports are in `assets/images/app-icon/`; source prompt and provenance are in `tools/ICON-GENERATION.md`.
-- GA4 configuration remains `G-XS41JPJ318`. Source retains affirmative analytics consent. No test enquiry, email, analytics opt-in or external submission was made.
+- GA4 configuration remains `G-K0WZE7SSCS`. Source retains affirmative analytics consent. No test enquiry, email, analytics opt-in or external submission was made.
 
 The browser tool rejected the `file://` preview under its URL policy. No alternate browser route was used to bypass that restriction. Visual page checks, desktop/mobile interactions, real-device installation, offline runtime behaviour and actual Apache responses remain unverified. The checks above cannot detect every runtime or hosting issue.
 
@@ -384,7 +384,7 @@ The browser tool rejected the `file://` preview under its URL policy. No alterna
 1. Back up the currently hosted site. Upload this project's root HTML pages, `.htaccess`, `manifest.json`, `sw.js`, `robots.txt`, `sitemap.xml` and the complete `assets` folder into the domain's assigned `htdocs`. Keep tools, old website folders and owner Markdown notes local. Upload `release.json` last.
 2. On HTTPS, confirm `/services`, `/about` and `/contact` open directly; `.html` versions redirect; and an unknown URL returns the custom page with HTTP 404. Check the desktop/mobile menu, theme/language dialogs, 3D scenes, enquiry preparation and analytics rejection. The enquiry form prepares an email draft; it does not send automatically.
 3. Use the footer installation guide on your actual Android/Windows and Apple devices. Confirm the new icon, then check the installed app online, offline and after reconnecting. Previously added shortcuts may need to be removed and added again if the operating system retains an old icon.
-4. In Google Search Console, inspect the home page and submit `https://shreenathauto.me/sitemap.xml`. Check whether Google can retrieve the HTML and icon. The verification key is retained, but ownership/indexing was not checked through your account.
+4. In Google Search Console, inspect the home page and submit `https://shreenathauto.live/sitemap.xml`. Check whether Google can retrieve the HTML and icon. The verification key is retained, but ownership/indexing was not checked through your account.
 
 InfinityFree warns that its mandatory browser-security challenge can interfere with PWAs. It can also affect non-browser retrieval. If those checks are blocked by the host, contact InfinityFree; site files cannot guarantee installation or crawler access through its security layer.
 
@@ -499,7 +499,7 @@ Withdrawal sets Google's disable flag and denied consent, blocks this site's mea
 ### Launch handoff
 
 The current release includes coordinated mobile fades, desktop content transitions with a stable header, theme-coloured text links, `release.json` and `assets/js/site-updates.js` for guarded update checks. Root `sw.js` replaces older workers and caches only the offline contact fallback and its assets. Read the 8 October publishing instructions in `INFINITYFREE-LAUNCH.md`. `tools/prepare_release.py` can prepare future release markers, asset versions and the worker's offline cache version; it was not executed. `WEBSITE-BUILD-PROMPT.md` is a reusable, parameterised brief for another business or project.
-Read `INFINITYFREE-LAUNCH.md` for this update’s upload instructions, appearance handoff, search-account setup and InfinityFree crawler limitations. `LAUNCH-CHECKLIST.md` covers the existing analytics, policy and owner verification steps. Canonical URLs and the sitemap target https://shreenathauto.me. Apache rules preserve clean URLs. Page, website, breadcrumb and branch structured data support discovery; rankings and AI citations are not guaranteed.
+Read `INFINITYFREE-LAUNCH.md` for this update’s upload instructions, appearance handoff, search-account setup and InfinityFree crawler limitations. `LAUNCH-CHECKLIST.md` covers the existing analytics, policy and owner verification steps. Canonical URLs and the sitemap target https://shreenathauto.live. Apache rules preserve clean URLs. Page, website, breadcrumb and branch structured data support discovery; rankings and AI citations are not guaranteed.
 
 **No browser, automated, visual, mobile-device, performance, or accessibility tests were run, as explicitly requested.** Responsive and motion code is implemented, but rendering and runtime behaviour remain unverified. The website has not been deployed or submitted to Awwwards.
 

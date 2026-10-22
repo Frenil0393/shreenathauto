@@ -2,7 +2,7 @@
 
 The English/Gujarati website for Shreenath Auto Advisers, an independent RTO consultancy serving Jamkandorana and Dhoraji, Gujarat.
 
-- Production domain: [shreenathauto.me](https://shreenathauto.me)
+- Production domain: [shreenathauto.live](https://shreenathauto.live)
 - Release: `20261011-r30`
 - Stack: static HTML, CSS and JavaScript with Three.js enhancements.
 - Production hosting: Apache / InfinityFree, deployed at the domain root.

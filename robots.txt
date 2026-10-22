@@ -11,4 +11,4 @@ Allow: /
 Disallow: /shreenath-auto%20V9/
 Disallow: /tools/
 
-Sitemap: https://shreenathauto.me/sitemap.xml
+Sitemap: https://shreenathauto.live/sitemap.xml

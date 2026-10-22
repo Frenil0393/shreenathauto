@@ -323,7 +323,7 @@
         words('sources', lang),
         ...guide.sources.map((source) => source.label + ': ' + source.url),
         '',
-        'https://shreenathauto.me/services'
+        'https://shreenathauto.live/services'
       ];
       const url = URL.createObjectURL(
         new Blob(['\uFEFF' + lines.join('\r\n')], { type: 'text/plain;charset=utf-8' })

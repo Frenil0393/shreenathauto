@@ -18,11 +18,11 @@ ErrorDocument 404 /404.html
   RewriteRule ^assets(?:/|$) - [F,L,NC]
 
   # Apply the production hostname policy only on the production domain.
-  RewriteCond %{HTTP_HOST} ^www\.shreenathauto\.me$ [NC]
-  RewriteRule ^ https://shreenathauto.me%{REQUEST_URI} [R=301,L,NE]
-  RewriteCond %{HTTP_HOST} ^shreenathauto\.me$ [NC]
+  RewriteCond %{HTTP_HOST} ^www\.shreenathauto\.live$ [NC]
+  RewriteRule ^ https://shreenathauto.live%{REQUEST_URI} [R=301,L,NE]
+  RewriteCond %{HTTP_HOST} ^shreenathauto\.live$ [NC]
   RewriteCond %{HTTPS} !=on
-  RewriteRule ^ https://shreenathauto.me%{REQUEST_URI} [R=301,L,NE]
+  RewriteRule ^ https://shreenathauto.live%{REQUEST_URI} [R=301,L,NE]
 
   # Conventional icon requests use the same high-contrast artwork as the manifest.
   RewriteRule ^favicon\.ico$ assets/images/app-icon/favicon.ico [L]
