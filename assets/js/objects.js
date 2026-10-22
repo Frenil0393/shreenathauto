@@ -79,7 +79,8 @@
         antialias: true,
         powerPreference: 'low-power'
       });
-      renderer.setPixelRatio(Math.min(devicePixelRatio, compact ? 1.15 : 1.7));
+      renderer.setPixelRatio(Math.min(devicePixelRatio || 1, compact ? 2 : 1.7));
+      const textAnisotropy = Math.min(4, renderer.capabilities.getMaxAnisotropy());
       renderer.outputColorSpace = T.SRGBColorSpace;
       renderer.toneMapping = T.ACESFilmicToneMapping;
       renderer.toneMappingExposure = 1.25;
@@ -200,6 +201,7 @@
         context.fillText(text, 256, 134);
         const texture = new T.CanvasTexture(canvas);
         texture.colorSpace = T.SRGBColorSpace;
+        texture.anisotropy = compact ? textAnisotropy : 1;
         trackedTextures.push(texture);
         return new T.Mesh(
           new T.PlaneGeometry(w, h),
@@ -239,7 +241,9 @@
         materials: { ivory, clay, sage, gold, ink, pale },
         motions,
         type,
-        trackedTextures
+        trackedTextures,
+        compact,
+        textAnisotropy
       });
       if (editorialScene) {
         plinth.visible = false;
@@ -548,6 +552,18 @@
       }
 
       const baseAngle = type === 'about' ? -0.1 : -0.2;
+      // Cache visible model bounds once, without the separate shadow plane or
+      // hidden plinth. Fit the phone camera to the model, not empty canvas space.
+      group.rotation.y = baseAngle;
+      group.updateMatrixWorld(true);
+      const modelBounds = new T.Box3();
+      group.traverseVisible((object) => {
+        if (!object.isMesh) return;
+        if (!object.geometry.boundingBox) object.geometry.computeBoundingBox();
+        modelBounds.union(object.geometry.boundingBox.clone().applyMatrix4(object.matrixWorld));
+      });
+      const modelCentre = modelBounds.getCenter(new T.Vector3());
+      const viewDirection = new T.Vector3(3.4, editorialScene ? 3 : 2.7, 6.6).normalize();
       let targetX = 0,
         targetY = baseAngle,
         currentX = 0,
@@ -659,9 +675,43 @@
         const w = viewport.clientWidth,
           h = viewport.clientHeight;
         if (!w || !h || lost) return;
+        const mobile = matchMedia('(max-width: 760px)').matches;
+        renderer.setPixelRatio(
+          Math.min(
+            devicePixelRatio || 1,
+            mobile ? 2 : 1.7,
+            mobile ? Math.sqrt(1400000 / (w * h)) : Infinity
+          )
+        );
         renderer.setSize(w, h, false);
         camera.aspect = w / h;
         camera.fov = camera.aspect < 1 ? 40 : 35;
+        camera.position.set(3.4, 2.7, 6.6);
+        camera.lookAt(0, editorialScene ? -0.3 : 0, 0);
+        if (mobile && !modelBounds.isEmpty()) {
+          camera.fov = 35;
+          camera.position.copy(modelCentre).addScaledVector(viewDirection, 8);
+          camera.lookAt(modelCentre);
+          camera.updateMatrixWorld(true);
+          const tangent = Math.tan(T.MathUtils.degToRad(camera.fov / 2));
+          const corner = new T.Vector3();
+          let distance = 0;
+          for (const x of [modelBounds.min.x, modelBounds.max.x]) {
+            for (const y of [modelBounds.min.y, modelBounds.max.y]) {
+              for (const z of [modelBounds.min.z, modelBounds.max.z]) {
+                corner.set(x, y, z).applyMatrix4(camera.matrixWorldInverse);
+                // Reserve room for small live gestures and idle rotation.
+                distance = Math.max(
+                  distance,
+                  8 + corner.z + (Math.abs(corner.x) * 1.14) / (tangent * camera.aspect),
+                  8 + corner.z + (Math.abs(corner.y) * 1.14) / tangent
+                );
+              }
+            }
+          }
+          camera.position.copy(modelCentre).addScaledVector(viewDirection, Math.max(2, distance));
+          camera.lookAt(modelCentre);
+        }
         camera.updateProjectionMatrix();
         requestRender();
       }

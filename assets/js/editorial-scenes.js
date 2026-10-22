@@ -1,7 +1,16 @@
 /* Three editorial environments. Policies deliberately use symbolic objects.
    All furniture is baked by material; only purposeful activity stays dynamic. */
 window.ShreenathEditorialScenes = Object.freeze({
-  build({ T, group, materials: m, motions, type, trackedTextures = [] }) {
+  build({
+    T,
+    group,
+    materials: m,
+    motions,
+    type,
+    trackedTextures = [],
+    compact = false,
+    textAnisotropy = 1
+  }) {
     if (!['about', 'services', 'contact'].includes(type)) return false;
     const world = new T.Group(),
       fixed = new T.Group();
@@ -165,14 +174,16 @@ window.ShreenathEditorialScenes = Object.freeze({
     const signs = [];
     function sign(text, x, y, z, w, h = 0.22) {
       const canvas = document.createElement('canvas');
-      canvas.width = 1024;
+      canvas.width = compact ? Math.min(1536, Math.round((192 * w) / h)) : 1024;
       canvas.height = 192;
       const texture = new T.CanvasTexture(canvas);
       texture.colorSpace = T.SRGBColorSpace;
+      texture.anisotropy = compact ? textAnisotropy : 1;
       trackedTextures.push(texture);
       const material = new T.MeshBasicMaterial({
         map: texture,
         transparent: true,
+        toneMapped: !compact,
         side: T.DoubleSide
       });
       place(mesh(new T.PlaneGeometry(w, h), material, world), x, y, z);
@@ -181,17 +192,21 @@ window.ShreenathEditorialScenes = Object.freeze({
     function redrawSigns() {
       signs.forEach(({ canvas, texture, text }) => {
         const ctx = canvas.getContext('2d');
-        ctx.clearRect(0, 0, 1024, 192);
+        ctx.clearRect(0, 0, canvas.width, canvas.height);
         ctx.fillStyle = '#efe9d9';
-        ctx.fillRect(0, 0, 1024, 192);
+        ctx.fillRect(0, 0, canvas.width, canvas.height);
         ctx.fillStyle = '#344137';
         ctx.textAlign = 'center';
         ctx.textBaseline = 'middle';
-        ctx.font =
-          window.ShreenathLanguage?.get() === 'gu'
-            ? '500 74px "Hind Vadodara",sans-serif'
-            : '600 65px sans-serif';
-        ctx.fillText(window.ShreenathLanguage?.text(text) || text, 512, 100, 950);
+        const gujarati = window.ShreenathLanguage?.get() === 'gu';
+        const copy = window.ShreenathLanguage?.text(text) || text;
+        const font = gujarati ? '500 SIZEpx "Hind Vadodara",sans-serif' : '600 SIZEpx sans-serif';
+        let size = compact ? (gujarati ? 112 : 106) : gujarati ? 74 : 65;
+        ctx.font = font.replace('SIZE', size);
+        const available = canvas.width - 74;
+        if (compact) size *= Math.min(1, available / Math.max(1, ctx.measureText(copy).width));
+        ctx.font = font.replace('SIZE', size);
+        ctx.fillText(copy, canvas.width / 2, 100, available);
         texture.needsUpdate = true;
       });
     }

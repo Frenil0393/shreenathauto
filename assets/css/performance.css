@@ -58,6 +58,64 @@
   display: block;
   max-width: 100%;
 }
+/* Contain perspective/overscan paint at the mobile viewport, not by cancelling
+   touch events. Native vertical scrolling and pinch zoom remain available. */
+@media screen and (max-width: 760px) {
+  html {
+    overflow-x: hidden;
+  }
+  @supports (overflow: clip) {
+    html,
+    body {
+      overflow-x: clip;
+    }
+  }
+  .service-stage .section-heading > *,
+  .service-heading-copy,
+  .service-heading-copy > * {
+    min-width: 0;
+  }
+  .dimensional-art--compact .sculpture {
+    scale: 0.95;
+  }
+  .dimensional-art figcaption {
+    left: 0;
+    right: 0;
+    padding-inline: 8px;
+    font-size: 10px;
+    text-align: center;
+    overflow-wrap: anywhere;
+  }
+  .object-stage figcaption {
+    font-size: 10px;
+    line-height: 1.5;
+  }
+  .editorial-hero .object-stage {
+    width: 100%;
+    margin-inline: 0;
+  }
+  .editorial-hero .object-stage.object-stage--editorial {
+    height: clamp(315px, 82vw, 380px);
+  }
+}
+@media screen and (max-width: 480px) {
+  /* Give the paper sculpture a whole row instead of a 135px slot. Its caption
+     and seal stay readable without projecting beyond the page gutter. */
+  .service-stage .service-heading-copy {
+    grid-template-columns: minmax(0, 1fr);
+    gap: 4px;
+  }
+  .service-stage .dimensional-art--compact {
+    width: min(100%, 280px);
+    height: 205px;
+    justify-self: center;
+    margin: 0;
+  }
+  .service-stage .dimensional-art--compact figcaption {
+    bottom: 4px;
+    font-size: 10px;
+  }
+}
 @media (hover: none), (pointer: coarse) {
   .team-card:hover .portrait img,
   .office-card:hover .office-image img {

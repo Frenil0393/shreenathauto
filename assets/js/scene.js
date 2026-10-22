@@ -47,7 +47,7 @@
         antialias: true,
         powerPreference: 'low-power'
       });
-      renderer.setPixelRatio(Math.min(devicePixelRatio, compact ? 1.25 : 1.6));
+      renderer.setPixelRatio(Math.min(devicePixelRatio || 1, compact ? 1.75 : 1.6));
       renderer.outputColorSpace = T.SRGBColorSpace;
       renderer.toneMapping = T.ACESFilmicToneMapping;
       renderer.toneMappingExposure = 1.05;
@@ -409,19 +409,19 @@
         ctx.fillStyle = '#e9e5d5';
         ctx.fillRect(0, 0, canvas.width, canvas.height);
         ctx.fillStyle = '#344137';
-        const size = text === 'SHREENATH AUTO OFFICE' ? 72 : 37;
-        ctx.font =
+        let size = compact ? 92 : text === 'SHREENATH AUTO OFFICE' ? 72 : 37;
+        const copy = window.ShreenathLanguage?.text(text) ?? text;
+        const font =
           window.ShreenathLanguage?.get() === 'gu'
-            ? `500 ${size}px "Hind Vadodara", sans-serif`
-            : `bold ${size}px sans-serif`;
+            ? '500 SIZEpx "Hind Vadodara", sans-serif'
+            : 'bold SIZEpx sans-serif';
+        ctx.font = font.replace('SIZE', size);
+        if (compact)
+          size *= Math.min(1, (canvas.width - 64) / Math.max(1, ctx.measureText(copy).width));
+        ctx.font = font.replace('SIZE', size);
         ctx.textAlign = 'center';
         ctx.textBaseline = 'middle';
-        ctx.fillText(
-          window.ShreenathLanguage?.text(text) ?? text,
-          canvas.width / 2,
-          canvas.height / 2 + 3,
-          canvas.width - 64
-        );
+        ctx.fillText(copy, canvas.width / 2, canvas.height / 2 + 3, canvas.width - 64);
         texture.needsUpdate = true;
       }
       function sign(text, x, y, z, width, angle = 0, height = width / 4, parent = world) {
@@ -430,11 +430,16 @@
         canvas.height = 128;
         const texture = new T.CanvasTexture(canvas);
         texture.colorSpace = T.SRGBColorSpace;
+        texture.anisotropy = compact ? Math.min(4, renderer.capabilities.getMaxAnisotropy()) : 1;
         textures.add(texture);
         const record = { canvas, text, texture };
         streetSigns.push(record);
         drawSign(record);
-        const material = new T.MeshBasicMaterial({ map: texture, side: T.DoubleSide });
+        const material = new T.MeshBasicMaterial({
+          map: texture,
+          side: T.DoubleSide,
+          toneMapped: !compact
+        });
         ownedMaterials.add(material);
         const g = new T.PlaneGeometry(width, height);
         ownedGeometry.add(g);
@@ -1051,12 +1056,16 @@
         // A full-width canvas needs a bounded pixel budget, especially on Retina
         // displays. Geometry and simulation work stay unchanged.
         renderer.setPixelRatio(
-          Math.min(devicePixelRatio, compact ? 1.1 : 1.6, Math.sqrt(2400000 / (w * h)))
+          Math.min(
+            devicePixelRatio || 1,
+            wide ? 1.6 : 1.75,
+            Math.sqrt((wide ? 2400000 : 1400000) / (w * h))
+          )
         );
         renderer.setSize(w, h, false);
         const bounds = new T.Box3(
-          new T.Vector3(wide ? -5.1 : -5.6, -0.3, wide ? -3.65 : -4.85),
-          new T.Vector3(wide ? 5.1 : 5.6, 1.9, 3.65)
+          new T.Vector3(-5.1, -0.3, wide ? -3.65 : -4.25),
+          new T.Vector3(5.1, 1.9, 3.65)
         ).applyMatrix4(camera.matrixWorldInverse);
         const extent = bounds.getSize(new T.Vector3()),
           aspect = w / h;

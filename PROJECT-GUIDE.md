@@ -1,5 +1,12 @@
 # Shreenath Auto Advisers — Project Guide
 
+
+## Mobile overflow and scene clarity — 22 October 2026 (r31)
+
+Preserved the owner's current domain/content edits. The mobile viewport now clips horizontal decorative overflow while retaining native vertical scrolling and pinch zoom, with a hidden-overflow fallback for older browsers. The homepage document sculpture gets a full-width row on narrow phones instead of the 135px slot and 56% scale; captions are 10px and constrained to their figure. Editorial scene widths stay inside page gutters and receive more vertical room. Phone object cameras fit the visible model bounds with motion padding; render resolution is capped at 2x for objects and 1.75x for the street, both with a 1.4-million-pixel ceiling. Mobile signs use better texture filtering, larger fitted lettering and improved contrast. The street's mobile framing brings the main office and junction closer. Desktop framing, scene concepts, content and navigation are preserved. Existing animation throttling and mobile shadow settings remain. Updated stylesheet/script query versions and page/release markers to 20261022-r31.
+
+Upload the changed HTML pages, assets/css/performance.css, assets/js/objects.js, assets/js/editorial-scenes.js, assets/js/scene.js and release.json together. No website/browser tests were run, as requested; review the hosted pages on a phone after uploading.
+
 ## SVG label placement, source formatting and cleanup — 11 October 2026 (r30)
 
 Placed about, services and street labels on dedicated rounded sign panels aligned to their scene surfaces. Redrew the contact adviser and visitor with seated poses, bent legs, chair support and arms oriented toward the conversation area. Formatted HTML, CSS, JavaScript, JSON, SVG, Markdown and deployment YAML without redesigning the website. Updated README with the current feature set, root-domain InfinityFree publishing instructions and manual review steps. Removed the unused older responsive photo folder, unused PNG logo and empty video folder; retained a recovery copy outside the project. Kept referenced social-preview office images, future-use portraits and repository/deployment files. Updated SVG URL and page release versions. No website/browser tests were run.
