@@ -4,6 +4,12 @@
   const root = document.documentElement;
   // Establish the compact navigation state before the first layout, not in defer.
   root.classList.add('js');
+  const platform = navigator.userAgentData?.platform || navigator.platform || navigator.userAgent;
+  root.classList.toggle('apple-device', /Mac|iPhone|iPad|iPod/i.test(platform));
+  root.dataset.touchDevice = String(
+    matchMedia('(pointer: coarse)').matches ||
+      (navigator.maxTouchPoints > 0 && Math.min(screen.width, screen.height) <= 1024)
+  );
   const key = 'shreenath_appearance_v1';
   const system = matchMedia('(prefers-color-scheme: dark)');
   const defaults = { mode: 'system', accent: 'original' };

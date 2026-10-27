@@ -1265,9 +1265,7 @@ html.lenis body {
 .lenis.lenis-smooth iframe {
   pointer-events: none;
 }
-@view-transition {
-  navigation: auto;
-}
+/* Navigation opt-in is declared in each document head before blocking scripts. */
 ::view-transition-old(root) {
   animation: page-out 0.18s ease both;
 }

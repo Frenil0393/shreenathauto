@@ -5,14 +5,22 @@
   const finePointer = matchMedia('(hover: hover) and (pointer: fine)');
   const running = new Set();
 
-  // Keep native <details> semantics and keyboard handling. Measure actual content,
-  // animate both directions, and restart at the visible height on rapid clicks.
+  const disclosures = new Map();
+  function closeOtherQuestions(current, group) {
+    if (!group) return;
+    disclosures.forEach((control, details) => {
+      if (details !== current && control.group === group) control.set(false);
+    });
+  }
+
+  // Keep the existing height animation, including when another question closes.
   document.querySelectorAll('details').forEach((details, index) => {
     const summary = details.querySelector(':scope > summary');
     if (!summary) return;
+    const group = details.closest('.faq');
     const panel = document.createElement('div');
     panel.className = 'disclosure-panel';
-    panel.id = `disclosure-panel-${index}`;
+    panel.id = 'disclosure-panel-' + index;
     [...details.childNodes].forEach((node) => {
       if (node !== summary) panel.append(node);
     });
@@ -36,30 +44,28 @@
       semantics();
       running.delete(finish);
     }
-    semantics();
-    summary.addEventListener('click', (event) => {
-      if (!details.animate) return; // Native disclosure remains the fallback.
-      event.preventDefault();
+    function setExpanded(next) {
+      if (expanded === next) return;
+      if (next) closeOtherQuestions(details, group);
       const start = details.getBoundingClientRect().height;
       generation++;
       animation?.cancel();
-      expanded = !expanded;
+      animation = null;
+      expanded = next;
       semantics();
-      if (reduced.matches) {
+      if (reduced.matches || !details.animate) {
         finish();
         return;
       }
-      // Measure the actual resting box, including padding, borders and wrapped
-      // text. Adding summary + panel heights omitted the cookie row's 24px of
-      // padding, so releasing the animated height produced a final visible jump.
       details.style.height = 'auto';
       details.open = expanded;
       const end = details.getBoundingClientRect().height;
+      // Leave the closing panel paintable until its height animation finishes.
       details.open = true;
-      details.style.height = `${start}px`;
+      details.style.height = start + 'px';
       details.style.overflow = 'hidden';
       const thisGeneration = generation;
-      animation = details.animate([{ height: `${start}px` }, { height: `${end}px` }], {
+      animation = details.animate([{ height: start + 'px' }, { height: end + 'px' }], {
         duration: expanded ? 420 : 320,
         easing: 'cubic-bezier(.22,.75,.25,1)',
         fill: 'both'
@@ -68,12 +74,19 @@
       animation.onfinish = () => {
         if (thisGeneration === generation) finish();
       };
+    }
+    disclosures.set(details, { group, set: setExpanded });
+    if (expanded) closeOtherQuestions(details, group);
+    semantics();
+    summary.addEventListener('click', (event) => {
+      event.preventDefault();
+      setExpanded(!expanded);
     });
     details.addEventListener('toggle', () => {
-      if (!animation) {
-        expanded = details.open;
-        semantics();
-      }
+      if (animation) return;
+      expanded = details.open;
+      if (expanded) closeOtherQuestions(details, group);
+      semantics();
     });
   });
   addEventListener('resize', () => running.forEach((finish) => finish()), { passive: true });

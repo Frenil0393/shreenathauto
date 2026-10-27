@@ -1,5 +1,5 @@
 # Public pages are available to search engines and AI discovery crawlers.
-# Host-level browser challenges are controlled by InfinityFree, not this file.
+# Production hosting: Cloudflare Pages. Preview URLs are noindex via _headers.
 User-agent: *
 Allow: /
 Disallow: /shreenath-auto%20V9/

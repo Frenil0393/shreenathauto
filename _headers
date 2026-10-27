@@ -1,0 +1,79 @@
+# Cloudflare Pages static response settings. Keep this file in the upload root.
+/*
+  X-Content-Type-Options: nosniff
+  Referrer-Policy: strict-origin-when-cross-origin
+  X-Frame-Options: SAMEORIGIN
+  Permissions-Policy: camera=(), microphone=(), geolocation=()
+  Content-Security-Policy: frame-ancestors 'self'
+  X-Permitted-Cross-Domain-Policies: none
+
+# Keep temporary Pages addresses out of search results; the custom domain is indexable.
+https://:project.pages.dev/*
+  X-Robots-Tag: noindex
+
+https://:version.:project.pages.dev/*
+  X-Robots-Tag: noindex
+
+# Revalidate editable scripts/styles. Images use Pages' built-in ETag caching.
+/assets/js/*
+  Cache-Control: no-cache, max-age=0, must-revalidate
+
+/assets/css/*
+  Cache-Control: no-cache, max-age=0, must-revalidate
+
+/sw.js
+  Cache-Control: no-cache, max-age=0, must-revalidate
+  Service-Worker-Allowed: /
+
+/manifest.json
+  Cache-Control: no-cache, max-age=0, must-revalidate
+
+/release.json
+  Cache-Control: no-store
+
+/sitemap.xml
+  Cache-Control: no-cache, max-age=0, must-revalidate
+
+/robots.txt
+  Cache-Control: no-cache, max-age=0, must-revalidate
+
+# Fresh documents on normal navigation; no forced reload of an open page.
+/
+  Cache-Control: no-store, max-age=0
+
+/about
+  Cache-Control: no-store, max-age=0
+
+/services
+  Cache-Control: no-store, max-age=0
+
+/contact
+  Cache-Control: no-store, max-age=0
+
+/privacy
+  Cache-Control: no-store, max-age=0
+
+/terms
+  Cache-Control: no-store, max-age=0
+
+/cancellations
+  Cache-Control: no-store, max-age=0
+
+/cookies
+  Cache-Control: no-store, max-age=0
+
+/copyright
+  Cache-Control: no-store, max-age=0
+
+/accessibility
+  Cache-Control: no-store, max-age=0
+
+/offline
+  Cache-Control: no-store, max-age=0
+
+/404
+  Cache-Control: no-store, max-age=0
+
+/*.html
+  Cache-Control: no-store, max-age=0
+

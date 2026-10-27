@@ -492,6 +492,39 @@ html:not(.js) .header-ready > .menu-toggle {
     justify-content: center;
   }
 }
+
+/* A phone requesting a desktop viewport still needs all right-hand controls.
+   Give the controls a real grid column and compact their labels, not the links. */
+@media screen and (min-width: 761px) and (max-width: 1200px) {
+  :root[data-touch-device='true'] .header-inner.header-ready {
+    grid-template-columns: minmax(0, 1fr) auto auto;
+    gap: 14px;
+  }
+  :root[data-touch-device='true'] .header-ready > .header-tools {
+    display: flex;
+    min-width: 0;
+    gap: 6px;
+  }
+  :root[data-touch-device='true'] .header-tools .header-contact {
+    display: inline-flex;
+    padding: 10px;
+    gap: 8px;
+    font-size: 11px;
+  }
+  :root[data-touch-device='true'] .header-tools :is(.appearance-trigger, .language-trigger) {
+    width: 44px;
+    min-width: 44px;
+    height: 44px;
+    padding: 10px;
+  }
+  :root[data-touch-device='true'] .header-tools .header-control-copy {
+    display: none;
+  }
+  :root[data-touch-device='true'] .header-tools .language-trigger svg {
+    display: block;
+  }
+}
+
 @media (prefers-reduced-motion: reduce) {
   .header-ready > .main-nav > a,
   .header-inner > .main-nav > a:before,

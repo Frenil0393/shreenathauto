@@ -4,6 +4,7 @@
   const root = document.documentElement;
   const motionPreference = matchMedia('(prefers-reduced-motion: reduce)');
   const narrowScreen = matchMedia('(max-width: 760px)');
+  const wheelPointer = matchMedia('(hover: hover) and (pointer: fine)');
   root.classList.add('js');
 
   // The compact menu uses ordinary navigation links and never traps scrolling.
@@ -100,7 +101,7 @@
   let lenis;
   let lenisLoading = false;
   async function updateSmoothScroll() {
-    if (motionPreference.matches || narrowScreen.matches) {
+    if (motionPreference.matches || narrowScreen.matches || !wheelPointer.matches) {
       lenis?.destroy();
       lenis = undefined;
       return;
@@ -110,7 +111,7 @@
     try {
       const { default: Lenis } =
         await import('https://cdn.jsdelivr.net/npm/lenis@1.3.26/dist/lenis.mjs');
-      if (!motionPreference.matches && !narrowScreen.matches) {
+      if (!motionPreference.matches && !narrowScreen.matches && wheelPointer.matches) {
         lenis = new Lenis({
           autoRaf: true,
           lerp: 0.09,
@@ -125,6 +126,7 @@
       lenisLoading = false;
     }
   }
+  wheelPointer.addEventListener('change', updateSmoothScroll);
   updateSmoothScroll();
   addEventListener('shreenath:scroll-to', (event) => {
     const top = event.detail?.top;

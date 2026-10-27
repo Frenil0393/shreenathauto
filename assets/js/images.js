@@ -1,9 +1,32 @@
-/* Request appropriately sized photos early and decode one at a time.
-   Native image loading remains fully functional if this enhancement is absent. */
+/* Prepare photos without allowing one failed decode to block the next.
+   A failed WebP candidate gets one ordinary JPEG request, never a page reload. */
 (() => {
   'use strict';
   const images = [...document.querySelectorAll('img[data-prepare-image]')];
-  if (!images.length || !('IntersectionObserver' in window)) return;
+  if (!images.length) return;
+  images.forEach((image) => {
+    const fallback = image.getAttribute('src');
+    let recovered = false;
+    function recover() {
+      if (recovered || !fallback) return;
+      recovered = true;
+      image
+        .closest('picture')
+        ?.querySelectorAll('source')
+        .forEach((source) => {
+          source.removeAttribute('srcset');
+        });
+      image.removeAttribute('srcset');
+      image.removeAttribute('sizes');
+      image.loading = 'eager';
+      const url = new URL(fallback, document.baseURI);
+      url.searchParams.set('v', '20261026-r32');
+      image.src = url.href;
+    }
+    image.addEventListener('error', recover);
+    if (image.complete && image.currentSrc && !image.naturalWidth) recover();
+  });
+  if (!('IntersectionObserver' in window)) return;
   const queue = [];
   const seen = new WeakSet();
   let working = false;
@@ -12,14 +35,22 @@
     working = true;
     const image = queue.shift();
     image.loading = 'eager';
-    // The browser chooses a srcset candidate. decode() prepares that candidate
-    // off the presentation path; it doesn't swap sources as the user scrolls.
+    let timeout;
     try {
-      if (image.decode) await image.decode();
+      if (image.decode) {
+        await Promise.race([
+          image.decode(),
+          new Promise((resolve) => {
+            timeout = setTimeout(resolve, 1500);
+          })
+        ]);
+      }
     } catch {
-      /* Native fallback remains. */
+      // The error listener handles fallback; later images still get prepared.
+    } finally {
+      clearTimeout(timeout);
+      working = false;
     }
-    working = false;
     if (queue.length) {
       if ('requestIdleCallback' in window) requestIdleCallback(prepareNext, { timeout: 250 });
       else setTimeout(prepareNext, 24);

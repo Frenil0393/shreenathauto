@@ -54,6 +54,9 @@
       menu.focus({ preventScroll: true });
   }
   compact.addEventListener('change', layout);
+  addEventListener('resize', layout, { passive: true });
+  addEventListener('pageshow', layout);
+  window.visualViewport?.addEventListener('resize', layout, { passive: true });
   addEventListener('shreenath:language', sync);
   addEventListener('shreenath:appearance', sync);
   layout();

@@ -1,8 +1,6 @@
-/* One content transition; the header keeps its stable desktop snapshot. */
+/* Opt-in lives in the early document head. Keep late styles animation-only
+   so incoming navigation never loses its opt-in while styles are loading. */
 @media (min-width: 761px) {
-  @view-transition {
-    navigation: auto;
-  }
   ::view-transition-group(root) {
     animation-duration: 0.46s;
   }
@@ -60,9 +58,6 @@ html.is-page-exiting .site-footer {
   animation: none;
 }
 @media (max-width: 760px) {
-  @view-transition {
-    navigation: none;
-  }
   html.is-page-exiting .main-nav.is-open {
     opacity: 0;
     transition: opacity 0.18s ease !important;
@@ -85,9 +80,6 @@ html.is-page-exiting .site-footer {
   }
 }
 @media (prefers-reduced-motion: reduce) {
-  @view-transition {
-    navigation: none;
-  }
   ::view-transition-old(root),
   ::view-transition-new(root) {
     animation: none;

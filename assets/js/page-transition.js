@@ -21,7 +21,9 @@
     'onpagereveal' in window &&
     window.CSS &&
     CSS.supports('view-transition-name', 'site-header');
-  const enhanced = () => (mobile.matches || !nativeNavigation) && !reduced.matches;
+  let nativeSkipped = false;
+  const enhanced = () =>
+    (mobile.matches || !nativeNavigation || nativeSkipped) && !reduced.matches;
   function reveal() {
     if (revealed) return;
     revealed = true;
@@ -44,6 +46,22 @@
     leaving = false;
     root.classList.remove('is-page-navigation', 'is-page-exiting');
   }
+  addEventListener('pagereveal', (event) => {
+    if (!event.viewTransition) return;
+    // Native transitions may be skipped on slow or interrupted navigation.
+    // Recover the content fade without hiding or moving the persistent header.
+    event.viewTransition.ready.catch(() => {
+      if (reduced.matches || leaving) return;
+      nativeSkipped = true;
+      revealed = false;
+      root.dataset.mobileEntry = 'pending';
+      reveal();
+    });
+  });
+  addEventListener('pageswap', (event) => {
+    // A skipped outgoing snapshot does not prevent the navigation itself.
+    if (event.viewTransition) event.viewTransition.ready.catch(() => {});
+  });
   if (enhanced()) {
     root.dataset.mobileEntry = 'pending';
     // Fail open even when a dependency is blocked or the 3D engine fails.

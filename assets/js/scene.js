@@ -32,7 +32,7 @@
         clearTimeout(wait);
         return;
       }
-      const compact = innerWidth < 761;
+      const compact = innerWidth < 761 || window.ShreenathSceneSupport?.limitedGraphics;
       const scene = new T.Scene(),
         world = new T.Group(),
         street = new T.Group();
@@ -1058,8 +1058,8 @@
         renderer.setPixelRatio(
           Math.min(
             devicePixelRatio || 1,
-            wide ? 1.6 : 1.75,
-            Math.sqrt((wide ? 2400000 : 1400000) / (w * h))
+            compact ? 1.75 : 1.6,
+            Math.sqrt((compact ? 1400000 : 2400000) / (w * h))
           )
         );
         renderer.setSize(w, h, false);

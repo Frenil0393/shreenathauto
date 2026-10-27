@@ -66,7 +66,8 @@
         clearTimeout(wait);
         return;
       }
-      const compact = matchMedia('(max-width: 760px)').matches;
+      const compact =
+        matchMedia('(max-width: 760px)').matches || window.ShreenathSceneSupport?.limitedGraphics;
       const viewport = stage.querySelector('.object-viewport');
       const type = stage.dataset.object;
       const ambientMotion = ['about', 'services', 'contact'].includes(type);
@@ -679,8 +680,8 @@
         renderer.setPixelRatio(
           Math.min(
             devicePixelRatio || 1,
-            mobile ? 2 : 1.7,
-            mobile ? Math.sqrt(1400000 / (w * h)) : Infinity
+            compact ? 2 : 1.7,
+            compact ? Math.sqrt(1400000 / (w * h)) : Infinity
           )
         );
         renderer.setSize(w, h, false);

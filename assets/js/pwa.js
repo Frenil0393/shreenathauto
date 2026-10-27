@@ -162,11 +162,10 @@
     if (!isSecureContext || !/^https?:$/.test(location.protocol) || !('serviceWorker' in navigator))
       return;
     try {
-      const registration = await navigator.serviceWorker.register('/sw.js', {
+      await navigator.serviceWorker.register('/sw.js?v=20261026-r32', {
         scope: '/',
         updateViaCache: 'none'
       });
-      await registration.update();
     } catch {
       /* Hosting restrictions must never prevent normal site use. */
     }

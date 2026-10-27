@@ -50,7 +50,16 @@
     stage.classList.remove('is-fallback');
     stage.setAttribute('aria-busy', 'false');
   }
-  window.ShreenathSceneSupport = { live: live, show: show, ready: ready };
+  var limitedGraphics = Boolean(
+    (window.matchMedia && window.matchMedia('(pointer: coarse)').matches) ||
+    (navigator.maxTouchPoints > 0 && Math.min(screen.width, screen.height) <= 1024)
+  );
+  window.ShreenathSceneSupport = {
+    live: live,
+    show: show,
+    ready: ready,
+    limitedGraphics: limitedGraphics
+  };
   document.addEventListener('DOMContentLoaded', function () {
     var stages = document.querySelectorAll('#road-scene, [data-object]');
     for (var i = 0; i < stages.length; i++) {
